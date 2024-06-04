@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, SafeAreaView, StyleSheet } from "react-native";
+import RootPage from "./pages/RootPage";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello React Native World!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <RootPage>
+      <Pressable
+        onPress={() => {
+          console.log("Pressed");
+        }}ß
+      >
+        <Image
+          resizeMode="contain"
+          source={{ uri: "https://reactnative.dev/docs/assets/p_cat2.png" }}
+          style={{ width: 300, height: 200, borderWidth: 1 }}
+        />
+      </Pressable>
+    </RootPage>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "lightgray",
   },
 });
