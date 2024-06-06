@@ -16,7 +16,7 @@ const ProductImageScreen = () => {
         </View>
         <View style={styles.viewer}>
           <Image
-            resizeMode="center"
+            resizeMode="contain"
             style={styles.img}
             source={require("../../assets/nature.jpeg")}
           />
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   },
   img: {
     aspectRatio: 1,
+    width: '100%',
     flex: 1,
   },
   left: {},
