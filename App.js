@@ -4,7 +4,7 @@ import ProductImageScreen from "./app/screens/product/ViewProductScreen";
 
 export default function App() {
   return (
-    <ProductImageScreen />
+    <WelcomeScreen />
   );
 }
 

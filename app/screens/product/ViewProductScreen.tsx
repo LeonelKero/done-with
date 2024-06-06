@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import RootPage from "../RootContainer";
+import color from "../../config/color";
 
 const ProductImageScreen = () => {
   return (
@@ -31,7 +32,7 @@ export default ProductImageScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#01203f",
+    backgroundColor: color.primary,
     padding: 8,
   },
   actions: {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   box: {
     width: 80,
     height: 80,
-    backgroundColor: "#fff",
+    backgroundColor: color.white,
     justifyContent: "center",
     alignItems: "center",
   },
