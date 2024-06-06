@@ -1,21 +1,10 @@
 import { Image, Pressable, SafeAreaView, StyleSheet } from "react-native";
-import RootPage from "./pages/RootPage";
+import RootPage from "./pages/RootContainer";
+import WelcomePage from "./pages/welcome/WelcomePage";
 
 export default function App() {
   return (
-    <RootPage>
-      <Pressable
-        onPress={() => {
-          console.log("Pressed");
-        }}ß
-      >
-        <Image
-          resizeMode="contain"
-          source={{ uri: "https://reactnative.dev/docs/assets/p_cat2.png" }}
-          style={{ width: 300, height: 200, borderWidth: 1 }}
-        />
-      </Pressable>
-    </RootPage>
+    <WelcomePage />
   );
 }
 
