@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import RootPage from "../RootContainer";
 
-const ViewProductPage = () => {
+const ProductImageScreen = () => {
   return (
     <RootPage>
       <View style={styles.container}>
@@ -26,7 +26,7 @@ const ViewProductPage = () => {
   );
 };
 
-export default ViewProductPage;
+export default ProductImageScreen;
 
 const styles = StyleSheet.create({
   container: {

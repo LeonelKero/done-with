@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const WelcomePage = () => {
+const WelcomeScreen = () => {
   return (
     <>
       <View style={styles.root}>
@@ -10,14 +10,14 @@ const WelcomePage = () => {
             <Text style={[styles.text, styles.done]}>DONE</Text>
             <Text style={[styles.text, styles.with]}>WITH</Text>
           </View>
-          <Text style={[styles.slogan]}>No More Bad Side Effect</Text>
+          <Text style={[styles.slogan]}>No more bad side effect!</Text>
         </View>
       </View>
     </>
   );
 };
 
-export default WelcomePage;
+export default WelcomeScreen;
 
 const styles = StyleSheet.create({
   root: {
@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
   },
   slogan: {
     color: "white",
-    fontSize: 18,
+    fontSize: 16,
+    fontStyle: "italic",
     marginTop: 8,
   },
   text: {

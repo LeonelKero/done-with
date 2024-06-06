@@ -1,11 +1,10 @@
-import { Image, Pressable, SafeAreaView, StyleSheet } from "react-native";
-import RootPage from "./pages/RootContainer";
-import WelcomePage from "./pages/welcome/WelcomePage";
-import ViewProductPage from "./pages/product/ViewProductPage";
+import { StyleSheet } from "react-native";
+import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
+import ProductImageScreen from "./app/screens/product/ViewProductScreen";
 
 export default function App() {
   return (
-    <ViewProductPage />
+    <ProductImageScreen />
   );
 }
 
