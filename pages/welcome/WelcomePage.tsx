@@ -1,20 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import RootPage from "../RootContainer";
 
 const WelcomePage = () => {
   return (
-    <RootPage>
+    <>
       <View style={styles.root}>
         <View style={styles.logo}>
           <View style={styles.mainLogo}>
-            <Text style={[styles.text]}>DONE</Text>
-            <Text style={[styles.text]}>WITH</Text>
+            <Text style={[styles.text, styles.done]}>DONE</Text>
+            <Text style={[styles.text, styles.with]}>WITH</Text>
           </View>
           <Text style={[styles.slogan]}>No More Bad Side Effect</Text>
         </View>
       </View>
-    </RootPage>
+    </>
   );
 };
 
@@ -27,20 +26,30 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  done: {
+    borderColor: "#fff",
+    borderWidth: 2,
+    paddingStart: 8,
+    paddingEnd: 8,
+  },
   logo: {
-    alignItems: 'center',
-    padding: 8
+    alignItems: "center",
+    padding: 8,
   },
   mainLogo: {
     flexDirection: "row",
   },
   slogan: {
     color: "white",
-    fontSize: 18
+    fontSize: 18,
+    marginTop: 8,
   },
   text: {
     color: "#fff",
     fontSize: 32,
-    padding: 2
+    padding: 2,
+  },
+  with: {
+    paddingStart: 8,
   },
 });
