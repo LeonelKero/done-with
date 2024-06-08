@@ -6,7 +6,7 @@ import ListingDetails from "./app/screens/details/ListingDetails";
 import MessagesScreen from "./app/screens/messages/MessagesScreen";
 
 export default function App() {
-  return <ListingDetails />;
+  return <MessagesScreen />;
 }
 
 const styles = StyleSheet.create({
