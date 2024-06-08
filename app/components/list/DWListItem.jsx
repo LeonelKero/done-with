@@ -3,7 +3,7 @@ import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
-const DWListItem = ({ image, title, subtitle, onPress }) => {
+const DWListItem = ({ image, title, subtitle, onPress = () => {} }) => {
   return (
     <TouchableHighlight onPress={onPress} underlayColor={color.lightBlue}>
       <View style={styles.container}>
