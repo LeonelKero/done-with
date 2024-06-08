@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+
 import DWButton from "../../components/button/DWButton";
 import color from "../../config/color";
 
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   },
   btnRegister: {
     marginTop: 16,
-    backgroundColor: color.secondary
+    backgroundColor: color.secondary,
   },
   done: {
     borderColor: color.lightGray,
@@ -66,9 +67,9 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     alignItems: "center",
     padding: 8,
-    position: 'absolute',
-    top: '35%',
-    start: '25%'
+    position: "absolute",
+    top: "35%",
+    start: "25%",
   },
   mainLogo: {
     flexDirection: "row",
