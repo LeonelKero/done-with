@@ -1,9 +1,5 @@
 import React from "react";
-import {
-    StyleSheet,
-    Text,
-    TouchableHighlight
-} from "react-native";
+import { StyleSheet, TouchableHighlight } from "react-native";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
@@ -32,6 +28,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingTop: 4,
     paddingBottom: 4,
-    fontSize: 18
+    fontSize: 18,
   },
 });
