@@ -1,20 +1,9 @@
-import { StyleSheet, View } from "react-native";
-import DWCard from "./app/components/card/DWCard";
+import { StyleSheet } from "react-native";
 import color from "./app/config/color";
-import RootContainer from "./app/screens/RootContainer";
+import ListingDetails from "./app/screens/details/ListingDetails";
 
 export default function App() {
-  return (
-    <RootContainer>
-      <View style={styles.container}>
-        <DWCard
-          image={require("./app/assets/nature.jpeg")}
-          title={"Really awesome item to sale"}
-          subTitle={"$ 80"}
-        />
-      </View>
-    </RootContainer>
-  );
+  return <ListingDetails />;
 }
 
 const styles = StyleSheet.create({

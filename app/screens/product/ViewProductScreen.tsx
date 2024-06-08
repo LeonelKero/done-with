@@ -1,11 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import RootPage from "../RootContainer";
 import color from "../../config/color";
+import RootContainer from "../RootContainer";
 
 const ProductImageScreen = () => {
   return (
-    <RootPage>
+    <RootContainer>
       <View style={styles.container}>
         <View style={styles.actions}>
           <View style={[styles.box]}>
@@ -23,7 +23,7 @@ const ProductImageScreen = () => {
           />
         </View>
       </View>
-    </RootPage>
+    </RootContainer>
   );
 };
 
