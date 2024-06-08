@@ -29,6 +29,7 @@ const MessagesScreen = () => {
         data={fakeData}
         renderItem={({ item }) => (
           <DWListItem
+            onPress={() => console.log("press for ", item)}
             image={require("../../assets/nature.jpeg")}
             title={item.name}
             subtitle={item.content}
