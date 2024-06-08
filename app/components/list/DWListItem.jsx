@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     // borderColor: "lightgray",
     // borderWidth: 2,
     paddingHorizontal: 16,
+    width: '100%',
     paddingVertical: 16,
     backgroundColor: color.white,
   },

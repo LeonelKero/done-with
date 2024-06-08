@@ -1,8 +1,10 @@
 import React from "react";
 import { Platform, SafeAreaView, StatusBar, StyleSheet } from "react-native";
 
-const RootContainer = (props) => {
-  return <SafeAreaView style={styles.root}>{props.children}</SafeAreaView>;
+const RootContainer = ({ custonStyle = {}, children }) => {
+  return (
+    <SafeAreaView style={[styles.root, custonStyle]}>{children}</SafeAreaView>
+  );
 };
 
 export default RootContainer;
