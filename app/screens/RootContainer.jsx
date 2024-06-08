@@ -1,20 +1,17 @@
-import { Platform, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from "react";
+import { Platform, SafeAreaView, StatusBar, StyleSheet } from "react-native";
 
-const RootPage = (props) => {
-  return (
-    <SafeAreaView style={styles.root}>
-      {props.children}
-    </SafeAreaView>
-  )
-}
+const RootContainer = (props) => {
+  return <SafeAreaView style={styles.root}>{props.children}</SafeAreaView>;
+};
 
-export default RootPage
+export default RootContainer;
 
 const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        backgroundColor: "#f0f0f0"
-    }
-})
+  root: {
+    flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: "#f0f0f0",
+    paddingHorizontal: 8,
+  },
+});

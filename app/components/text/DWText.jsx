@@ -2,7 +2,7 @@ import React from "react";
 import { Platform, StyleSheet, Text } from "react-native";
 
 const DWText = ({ children, customStyle = {} }) => {
-  return <Text style={[styles.text, customStyle]}>{children}</Text>;
+  return <Text style={[styles.text, customStyle]} numberOfLines={1}>{children}</Text>;
 };
 
 export default DWText;
