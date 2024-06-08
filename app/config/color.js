@@ -7,4 +7,5 @@ export default {
   white: "#fff",
   softDark: "#4f4d4d",
   lightGray: "#e5e5e5",
+  gray: '#727071'
 };
