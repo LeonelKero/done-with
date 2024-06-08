@@ -2,6 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
+import { MaterialCommunityIcons as MCIcons } from "@expo/vector-icons";
 
 const ProductImageScreen = () => {
   return (
@@ -9,10 +10,10 @@ const ProductImageScreen = () => {
       <View style={styles.container}>
         <View style={styles.actions}>
           <View style={[styles.box]}>
-            <Text style={styles.left}>L</Text>
+            <MCIcons name="close" size={40} color={color.white} />
           </View>
           <View style={[styles.right, styles.box]}>
-            <Text>R</Text>
+            <MCIcons name="trash-can-outline" size={40} color={color.deepRed} />
           </View>
         </View>
         <View style={styles.viewer}>
@@ -41,15 +42,15 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   box: {
-    width: 80,
-    height: 80,
-    backgroundColor: color.white,
+    width: 60,
+    height: 60,
+    // backgroundColor: color.third,
     justifyContent: "center",
     alignItems: "center",
   },
   img: {
     aspectRatio: 1,
-    width: '100%',
+    width: "100%",
     flex: 1,
   },
   left: {},
