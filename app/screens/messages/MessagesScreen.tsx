@@ -1,7 +1,8 @@
 import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import DWListItem from "../../components/list/DWListItem";
 import HorizontalSerparator from "../../components/separetor/HorizontalSerparator";
+import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
 const fakeData = [
@@ -33,6 +34,17 @@ const MessagesScreen = () => {
             image={require("../../assets/nature.jpeg")}
             title={item.name}
             subtitle={item.content}
+            renderRightActions={() => (
+              <>
+                <View style={{ backgroundColor: color.secondary, width: 80 }} />
+                <View style={{ backgroundColor: color.lightBlue, width: 80 }} />
+              </>
+            )}
+            renderLeftActions={() => (
+              <>
+                <View style={{ backgroundColor: color.third, width: 80 }} />
+              </>
+            )}
           />
         )}
         keyExtractor={(item) => item.id.toString()}
