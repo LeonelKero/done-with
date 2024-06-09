@@ -4,6 +4,7 @@ import DWListItem from "../../components/list/DWListItem";
 import HorizontalSerparator from "../../components/separetor/HorizontalSerparator";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
+import DWItemAction from "../../components/list/DWItemAction";
 
 const fakeData = [
   {
@@ -36,14 +37,24 @@ const MessagesScreen = () => {
             subtitle={item.content}
             renderRightActions={() => (
               <>
-                <View style={{ backgroundColor: color.secondary, width: 80 }} />
-                <View style={{ backgroundColor: color.lightBlue, width: 80 }} />
+                <DWItemAction
+                  actionName="Delete"
+                  iconName={"trash-can"}
+                  iconColor={color.white}
+                  iconSize={30}
+                  onPress={() => console.log("Action delete ", item)}
+                />
+                {/* <View style={{ backgroundColor: color.lightBlue, width: 80 }} /> */}
               </>
             )}
             renderLeftActions={() => (
-              <>
-                <View style={{ backgroundColor: color.third, width: 80 }} />
-              </>
+                <DWItemAction
+                actionName="Archive"
+                iconName={"archive"}
+                iconColor={color.white}
+                iconSize={30}
+                onPress={() => console.log("Action archive ", item)}
+              />
             )}
           />
         )}
