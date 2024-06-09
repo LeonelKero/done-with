@@ -1,10 +1,11 @@
-import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { FlatList, StyleSheet } from "react-native";
+import DWItemAction from "../../components/list/DWItemAction";
 import DWListItem from "../../components/list/DWListItem";
 import HorizontalSerparator from "../../components/separetor/HorizontalSerparator";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
-import DWItemAction from "../../components/list/DWItemAction";
+import DWEmptyItem from "../../components/list/DWEmptyItem";
 
 const fakeData = [
   {
@@ -25,16 +26,25 @@ const fakeData = [
 ];
 
 const MessagesScreen = () => {
+  const [messages, setMessages] = useState(fakeData);
+
+  const handleDelete = (messageId: number) => {
+    // Delete element
+    const remainingMessages = messages.filter((msg) => msg.id !== messageId);
+    setMessages(remainingMessages);
+    // Update on server
+  };
+
   return (
     <RootContainer custonStyle={styles.container}>
       <FlatList
-        data={fakeData}
-        renderItem={({ item }) => (
+        data={messages}
+        renderItem={({ item: message }) => (
           <DWListItem
-            onPress={() => console.log("press for ", item)}
+            onPress={() => console.log("press for ", message)}
             image={require("../../assets/nature.jpeg")}
-            title={item.name}
-            subtitle={item.content}
+            title={message.name}
+            subtitle={message.content}
             renderRightActions={() => (
               <>
                 <DWItemAction
@@ -42,24 +52,25 @@ const MessagesScreen = () => {
                   iconName={"trash-can"}
                   iconColor={color.white}
                   iconSize={30}
-                  onPress={() => console.log("Action delete ", item)}
+                  onPress={() => handleDelete(message.id)}
                 />
                 {/* <View style={{ backgroundColor: color.lightBlue, width: 80 }} /> */}
               </>
             )}
             renderLeftActions={() => (
-                <DWItemAction
+              <DWItemAction
                 actionName="Archive"
                 iconName={"archive"}
                 iconColor={color.white}
                 iconSize={30}
-                onPress={() => console.log("Action archive ", item)}
+                onPress={() => console.log("Action archive ", message)}
               />
             )}
           />
         )}
         keyExtractor={(item) => item.id.toString()}
         ItemSeparatorComponent={() => <HorizontalSerparator />}
+        ListEmptyComponent={() => <DWEmptyItem />}
       />
     </RootContainer>
   );
@@ -70,5 +81,6 @@ export default MessagesScreen;
 const styles = StyleSheet.create({
   container: {
     // paddingHorizontal: 16
+    flex: 1
   },
 });
