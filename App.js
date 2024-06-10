@@ -5,9 +5,10 @@ import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
 import ListingDetailsScreen from "./app/screens/details/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/messages/MessagesScreen";
 import AccountScreen from "./app/screens/account/AccountScreen";
+import ListingsScreen from "./app/screens/listings/ListingsScreen";
 
 export default function App() {
-  return <AccountScreen />;
+  return <ListingsScreen />;
 }
 
 const styles = StyleSheet.create({

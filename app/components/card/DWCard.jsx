@@ -26,15 +26,16 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     backgroundColor: color.white,
     paddingBottom: 4,
-    ...Platform.select({
-        ios:{
-            shadowColor: color.deepRed,
-            shadowOffset: {width: 2, height: 30},
-            shadowOffset: {width: 2, height: 30},
-            shadowOpacity: 10
-        },
-        android:{}
-    })
+    marginBottom: 16,
+    // ...Platform.select({
+    //     ios:{
+    //         shadowColor: color.deepRed,
+    //         shadowOffset: {width: 2, height: 30},
+    //         shadowOffset: {width: 2, height: 30},
+    //         shadowOpacity: 10
+    //     },
+    //     android:{}
+    // })
   },
   image: {
     width: "100%",
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     padding: 4,
-    paddingHorizontal: 8
+    paddingHorizontal: 16
   },
   title: {
     fontSize: 22,
