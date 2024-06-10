@@ -4,9 +4,10 @@ import ProductImageScreen from "./app/screens/product/ProductImageScreen";
 import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
 import ListingDetailsScreen from "./app/screens/details/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/messages/MessagesScreen";
+import AccountScreen from "./app/screens/account/AccountScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <AccountScreen />;
 }
 
 const styles = StyleSheet.create({
