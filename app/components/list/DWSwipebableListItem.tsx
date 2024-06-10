@@ -1,23 +1,32 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
+interface Props {
+  image: number;
+  title: string;
+  subtitle: string;
+  onPress: () => void;
+  renderLeftActions: ReactNode;
+  renderRightActions: ReactNode;
+}
+
 const DWSwipebableListItem = ({
   image,
   title,
   subtitle,
   onPress = () => {},
-  renderRightActions = () => {},
-  renderLeftActions = () => {},
-}) => {
+  renderRightActions = <></>,
+  renderLeftActions = <></>,
+}: Props) => {
   return (
     <GestureHandlerRootView>
       <Swipeable
-        renderLeftActions={renderLeftActions}
-        renderRightActions={renderRightActions}
+        renderLeftActions={() => renderLeftActions}
+        renderRightActions={() => renderRightActions}
       >
         <TouchableHighlight onPress={onPress} underlayColor={color.lightBlue}>
           <View style={styles.container}>

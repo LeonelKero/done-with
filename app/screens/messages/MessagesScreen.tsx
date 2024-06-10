@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
+import DWEmptyItem from "../../components/list/DWEmptyItem";
 import DWItemAction from "../../components/list/DWItemAction";
-import DWListItem from "../../components/list/DWListItem";
+import DWSwipebableListItem from "../../components/list/DWSwipebableListItem";
 import HorizontalSerparator from "../../components/separetor/HorizontalSerparator";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
-import DWEmptyItem from "../../components/list/DWEmptyItem";
-import DWSwipebableListItem from "../../components/list/DWSwipebableListItem";
 
 const fakeData = [
   {
@@ -46,19 +45,16 @@ const MessagesScreen = () => {
             image={require("../../assets/nature.jpeg")}
             title={message.name}
             subtitle={message.content}
-            renderRightActions={() => (
-              <>
-                <DWItemAction
-                  actionName="Delete"
-                  iconName={"trash-can"}
-                  iconColor={color.white}
-                  iconSize={30}
-                  onPress={() => handleDelete(message.id)}
-                />
-                {/* <View style={{ backgroundColor: color.lightBlue, width: 80 }} /> */}
-              </>
-            )}
-            renderLeftActions={() => (
+            renderRightActions={
+              <DWItemAction
+                actionName="Delete"
+                iconName={"trash-can"}
+                iconColor={color.white}
+                iconSize={30}
+                onPress={() => handleDelete(message.id)}
+              />
+            }
+            renderLeftActions={
               <DWItemAction
                 actionName="Archive"
                 iconName={"archive"}
@@ -66,7 +62,7 @@ const MessagesScreen = () => {
                 iconSize={30}
                 onPress={() => console.log("Action archive ", message)}
               />
-            )}
+            }
           />
         )}
         keyExtractor={(item) => item.id.toString()}
@@ -82,6 +78,6 @@ export default MessagesScreen;
 const styles = StyleSheet.create({
   container: {
     // paddingHorizontal: 16
-    flex: 1
+    flex: 1,
   },
 });
