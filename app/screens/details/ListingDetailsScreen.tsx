@@ -1,11 +1,11 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import DWListItem from "../../components/list/DWListItem";
 import DWText from "../../components/text/DWText";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
-const ListingDetails = () => {
+const ListingDetailsScreen = () => {
   return (
     <RootContainer>
       <View style={styles.top}>
@@ -26,13 +26,15 @@ const ListingDetails = () => {
           image={require("../../assets/nature.jpeg")}
           title={"Leonel ka"}
           subtitle={"15 items"}
+          onPress={() => console.log("Listing press!")}
         />
       </View>
+      {/* <Text>Some text</Text> */}
     </RootContainer>
   );
 };
 
-export default ListingDetails;
+export default ListingDetailsScreen;
 
 const styles = StyleSheet.create({
   top: {
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
   price: {
     fontWeight: "600",
     color: color.secondary,
-    paddingVertical: 4
+    paddingVertical: 4,
   },
   publisher: {
     marginTop: 16,

@@ -1,35 +1,19 @@
 import React from "react";
 import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Swipeable from "react-native-gesture-handler/Swipeable";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
-const DWListItem = ({
-  image,
-  title,
-  subtitle,
-  onPress = () => {},
-  renderRightActions = () => {},
-  renderLeftActions = () => {},
-}) => {
+const DWListItem = ({ image, title, subtitle, onPress = () => {} }) => {
   return (
-    <GestureHandlerRootView>
-      <Swipeable
-        renderRightActions={renderRightActions}
-        renderLeftActions={renderLeftActions}
-      >
-        <TouchableHighlight onPress={onPress} underlayColor={color.lightBlue}>
-          <View style={styles.container}>
-            <Image source={image} resizeMode="cover" style={styles.imgHolder} />
-            <View style={styles.info}>
-              <DWText customStyle={styles.title}>{title}</DWText>
-              <DWText customStyle={styles.subTitle}>{subtitle}</DWText>
-            </View>
-          </View>
-        </TouchableHighlight>
-      </Swipeable>
-    </GestureHandlerRootView>
+    <TouchableHighlight onPress={onPress} underlayColor={color.lightBlue}>
+      <View style={styles.container}>
+        <Image source={image} resizeMode="cover" style={styles.imgHolder} />
+        <View style={styles.info}>
+          <DWText customStyle={styles.title}>{title}</DWText>
+          <DWText customStyle={styles.subTitle}>{subtitle}</DWText>
+        </View>
+      </View>
+    </TouchableHighlight>
   );
 };
 

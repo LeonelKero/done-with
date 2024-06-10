@@ -6,6 +6,7 @@ import HorizontalSerparator from "../../components/separetor/HorizontalSerparato
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
 import DWEmptyItem from "../../components/list/DWEmptyItem";
+import DWSwipebableListItem from "../../components/list/DWSwipebableListItem";
 
 const fakeData = [
   {
@@ -40,7 +41,7 @@ const MessagesScreen = () => {
       <FlatList
         data={messages}
         renderItem={({ item: message }) => (
-          <DWListItem
+          <DWSwipebableListItem
             onPress={() => console.log("press for ", message)}
             image={require("../../assets/nature.jpeg")}
             title={message.name}
