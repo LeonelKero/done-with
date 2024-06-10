@@ -27,6 +27,7 @@ const fakeData = [
 
 const MessagesScreen = () => {
   const [messages, setMessages] = useState(fakeData);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const handleDelete = (messageId: number) => {
     // Delete element
@@ -68,6 +69,17 @@ const MessagesScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         ItemSeparatorComponent={() => <HorizontalSerparator />}
         ListEmptyComponent={() => <DWEmptyItem />}
+        refreshing={isRefreshing}
+        onRefresh={() =>
+          setMessages([
+            ...messages,
+            {
+              id: messages.length + 100,
+              name: "Message " + messages.length + 100,
+              content: "Message content " + messages.length + 100,
+            },
+          ])
+        }
       />
     </RootContainer>
   );
