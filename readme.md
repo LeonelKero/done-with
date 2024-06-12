@@ -8,6 +8,8 @@ Hands on React Native application development
 
 [React Native Icon](https://icons.expo.fyi/Index)
 
+[React Native Documentation/Api](https://reactnative.dev/docs/components-and-apis)
+
 [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 
 ## Topics
