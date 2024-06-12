@@ -83,7 +83,7 @@ const AccountScreen = () => {
               title={menu.name}
               onPress={() => console.log("Press on", menu.name)}
             >
-              <DWIcon icon={menu.iconObject} />
+              <DWIcon Icon={menu.iconObject} />
             </DWBasicItem>
           )}
         />
@@ -94,7 +94,7 @@ const AccountScreen = () => {
           onPress={() => console.log("Press on -> Log Out")}
         >
           <DWIcon
-            icon={<AntDesign name="logout" color={color.deepRed} size={24} />}
+            Icon={<AntDesign name="logout" color={color.deepRed} size={24} />}
           />
         </DWBasicItem>
       </View>

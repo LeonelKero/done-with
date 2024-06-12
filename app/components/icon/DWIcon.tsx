@@ -3,12 +3,12 @@ import { StyleSheet, View } from "react-native";
 import color from "../../config/color";
 
 interface Props {
-  icon: ReactNode;
+  Icon: ReactNode;
   customstyle?: {};
 }
 
-const DWIcon = ({ icon, customstyle = {} }: Props) => {
-  return <View style={[styles.container, customstyle]}>{icon}</View>;
+const DWIcon = ({ Icon, customstyle = {} }: Props) => {
+  return <View style={[styles.container, customstyle]}>{Icon}</View>;
 };
 
 export default DWIcon;
