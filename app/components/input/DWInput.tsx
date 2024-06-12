@@ -5,12 +5,13 @@ import color from "../../config/color";
 interface Props {
   placeholder: string;
   value: string;
-  onTextChange: (text: string) => void;
+  getText: (text: string) => void;
   Icon: ReactNode;
 }
 
 const DWInput = ({ placeholder, Icon }: Props) => {
   const [value, setValue] = useState<string>("");
+  // TODO: Get typed value from parent
 
   return (
     <View style={styles.container}>
@@ -42,6 +43,6 @@ const styles = StyleSheet.create({
   input: {
     paddingStart: 8,
     paddingEnd: 16,
-    width: '100%'
+    width: "100%",
   },
 });
