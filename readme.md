@@ -21,6 +21,14 @@ Hands on React Native application development
 - Expo API
 - Screens
 
+# Features
+
+- Sigup/Signin
+- Browser offers
+- See offer details
+- Publish new offer
+- Assign category
+
 ## Tech-Stack
 
 - Javascript/Typescript 5.x
