@@ -29,7 +29,23 @@ const DWPicker = ({ title, Icon }: Props) => {
           />
         </View>
       </Pressable>
-      {isModalVisible && <Modal />}
+      <Modal
+        visible={isModalVisible}
+        transparent={false}
+        animationType="slide"
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalTop}>
+          <DWText>Choose category</DWText>
+          <Pressable onPress={() => setModalVisible(false)}>
+            <MaterialCommunityIcons
+              name="close"
+              size={24}
+              color={color.softDark}
+            />
+          </Pressable>
+        </View>
+      </Modal>
     </>
   );
 };
@@ -48,6 +64,11 @@ const styles = StyleSheet.create({
   },
   detail: {
     flexDirection: "row",
+  },
+  modalTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 32,
   },
   text: {
     marginStart: 16,
