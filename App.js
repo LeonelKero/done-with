@@ -4,6 +4,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import DWPicker from "./app/components/picker/DWPicker";
 import color from "./app/config/color";
 import RootContainer from "./app/screens/RootContainer";
+import SignInScreen from "./app/screens/signin/SignInScreen";
+import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
 
 const pickerItems = [
   {
@@ -42,26 +44,26 @@ const pickerItems = [
 ];
 
 export default function App() {
-  return (
-    <RootContainer>
-      {/* <DWInput
-        placeholder="First name"
-        Icon={
-          <MaterialCommunityIcons name="email" size={21} color={color.gray} />
-        }
-      />
-      <DWSwitch
-        text="Air plane mode"
-        getCurrentState={(state) => console.log("Switch state", state)}
-      /> */}
-      <DWPicker
-        Icon={
-          <MaterialIcons name="category" size={16} color={color.softDark} />
-        }
-        placeholder="Item category"
-        pickerItems={pickerItems}
-      />
-    </RootContainer>
+  return ( <SignInScreen />
+    // <RootContainer>
+    //    <DWInput
+    //     placeholder="First name"
+    //     Icon={
+    //       <MaterialCommunityIcons name="email" size={21} color={color.gray} />
+    //     }
+    //   />
+    //   <DWSwitch
+    //     text="Air plane mode"
+    //     getCurrentState={(state) => console.log("Switch state", state)}
+    //   /> 
+    //   {/* <DWPicker
+    //     Icon={
+    //       <MaterialIcons name="category" size={16} color={color.softDark} />
+    //     }
+    //     placeholder="Item category"
+    //     pickerItems={pickerItems}
+    //   /> */}
+    //  </RootContainer> 
   );
 }
 

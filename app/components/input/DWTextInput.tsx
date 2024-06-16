@@ -4,13 +4,22 @@ import color from "../../config/color";
 
 interface Props {
   placeholder: string;
-  value: string;
+  defaultValue: string;
+  isSecure: boolean;
+  keyboardType: "default" | "email-address" | "number-pad";
   getText: (text: string) => void;
   Icon: ReactNode;
 }
 
-const DWInput = ({ placeholder, Icon }: Props) => {
-  const [value, setValue] = useState<string>("");
+const DWTextInput = ({
+  placeholder,
+  defaultValue,
+  isSecure = false,
+  keyboardType = "default",
+  Icon,
+  getText,
+}: Props) => {
+  const [value, setValue] = useState<string>(defaultValue);
   // TODO: Get typed value from parent
 
   return (
@@ -19,9 +28,15 @@ const DWInput = ({ placeholder, Icon }: Props) => {
       <TextInput
         style={styles.input}
         defaultValue=""
-        onChangeText={(text) => setValue(text)}
+        onChangeText={(text) => {
+          getText(text);
+          setValue(text);
+        }}
+        keyboardType={keyboardType}
         autoCapitalize="sentences"
         value={value}
+        autoCorrect={false}
+        secureTextEntry={isSecure}
         clearButtonMode="always"
         placeholder={placeholder}
       />
@@ -29,13 +44,14 @@ const DWInput = ({ placeholder, Icon }: Props) => {
   );
 };
 
-export default DWInput;
+export default DWTextInput;
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 15,
-    paddingVertical: 8,
+    paddingVertical: 10,
     paddingHorizontal: 16,
+    marginVertical: 8,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: color.white,
