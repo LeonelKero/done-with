@@ -38,7 +38,7 @@ const DWTextInput = ({
           setValue(text);
         }}
         keyboardType={keyboardType}
-        autoCapitalize="sentences"
+        autoCapitalize="none"
         value={value}
         autoCorrect={false}
         secureTextEntry={isSecret}
