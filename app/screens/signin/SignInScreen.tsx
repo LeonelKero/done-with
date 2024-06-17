@@ -21,6 +21,7 @@ const SignInScreen = () => {
           <DWTextInput
             placeholder="Username"
             defaultValue="Hello"
+            inputType="default"
             isSecure={false}
             keyboardType="email-address"
             getText={(text) => console.log(text)}
@@ -29,6 +30,7 @@ const SignInScreen = () => {
           <DWTextInput
             placeholder="Password"
             defaultValue="Password"
+            inputType="secure-secret"
             isSecure={true}
             keyboardType="default"
             getText={(text) => console.log(text)}
