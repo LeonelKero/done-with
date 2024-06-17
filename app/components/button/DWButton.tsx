@@ -3,10 +3,16 @@ import { StyleSheet, TouchableHighlight } from "react-native";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
-const DWButton = ({ btnText, customStyle, handleSignInPressed }) => {
+const DWButton = ({
+  btnText,
+  customStyle,
+  handleSignInPressed,
+  disabled = true,
+}) => {
   return (
     <TouchableHighlight
-      style={[styles.container, customStyle]}
+      disabled={disabled}
+      style={[styles.container, customStyle, disabled ? {backgroundColor: color.gray} : {}]}
       onPress={handleSignInPressed}
     >
       <DWText customStyle={styles.txt}>{btnText}</DWText>
