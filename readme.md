@@ -12,6 +12,8 @@ Hands on React Native application development
 
 [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 
+[Formik React Native](https://formik.org/docs/guides/react-native)
+
 ## Topics
 
 - Component
@@ -36,6 +38,7 @@ Hands on React Native application development
 - expo 51.0.x
 - React native 0.74
 - React native gesture handler 2.16.x
+- Formik 2.4.6
 
 # Screens
 
