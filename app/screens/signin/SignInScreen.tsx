@@ -44,6 +44,7 @@ const SignInScreen = () => {
           btnText={"Login"}
           handleSignInPressed={() => console.log("Login btn pressed!")}
           customStyle={{}}
+          disabled={false}
         />
       </View>
     </RootContainer>
