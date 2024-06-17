@@ -1,14 +1,22 @@
 import { Entypo } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import DWButton from "../../components/button/DWButton";
 import DWTextInput from "../../components/input/DWTextInput";
 import DWAppLogo from "../../components/logo/DWAppLogo";
-import DWText from "../../components/text/DWText";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
+interface LoginCredentials {
+  username: string;
+  password: string;
+}
+
 const SignInScreen = () => {
+  const [credentials, setCredentials] = useState<LoginCredentials>(
+    {} as LoginCredentials
+  );
+
   return (
     <RootContainer>
       <View style={styles.container}>
@@ -22,27 +30,34 @@ const SignInScreen = () => {
           <View style={styles.inputsSection}>
             <DWTextInput
               placeholder="Username"
-              defaultValue="Hello"
+              defaultValue=""
               inputType="default"
               isSecure={false}
               keyboardType="email-address"
-              getText={(text) => console.log(text)}
+              getText={(text) =>
+                setCredentials({
+                  ...credentials,
+                  username: text,
+                })
+              }
               Icon={<Entypo name="email" color={color.gray} size={20} />}
             />
             <DWTextInput
               placeholder="Password"
-              defaultValue="Password"
+              defaultValue=""
               inputType="secure-secret"
               isSecure={true}
               keyboardType="default"
-              getText={(text) => console.log(text)}
+              getText={(text) =>
+                setCredentials({ ...credentials, password: text })
+              }
               Icon={<Entypo name="key" color={color.gray} size={20} />}
             />
           </View>
         </View>
         <DWButton
           btnText={"Login"}
-          handleSignInPressed={() => console.log("Login btn pressed!")}
+          handleSignInPressed={() => console.log("Credentials", credentials)}
           customStyle={{}}
           disabled={false}
         />
@@ -58,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 32,
     paddingTop: 32,
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
     // backgroundColor: color.primary,
   },
   inputsSection: {
