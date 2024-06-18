@@ -5,7 +5,7 @@ import color from "../../config/color";
 
 interface Props {
   placeholder: string;
-  defaultValue: string;
+  value: string;
   isSecure: boolean;
   keyboardType: "default" | "email-address" | "number-pad";
   inputType: "default" | "secure-secret";
@@ -15,14 +15,14 @@ interface Props {
 
 const DWTextInput = ({
   placeholder,
-  defaultValue,
+  value,
   isSecure = false,
   keyboardType = "default",
   inputType = "default",
   Icon,
   getText,
 }: Props) => {
-  const [value, setValue] = useState<string>(defaultValue);
+  // const [value, setValue] = useState<string>(defaultValue);
   const [isSecretVisible, setSecretVisible] = useState(false);
   const [isSecret, setSecret] = useState(isSecure);
   // TODO: Get typed value from parent
@@ -35,7 +35,6 @@ const DWTextInput = ({
         defaultValue=""
         onChangeText={(text) => {
           getText(text);
-          setValue(text);
         }}
         keyboardType={keyboardType}
         autoCapitalize="none"
@@ -45,7 +44,7 @@ const DWTextInput = ({
         clearButtonMode="always"
         placeholder={placeholder}
       ></TextInput>
-      {inputType == "secure-secret" && (
+      {inputType == "secure-secret" && value && (
         <Pressable
           onPress={() => {
             setSecretVisible(!isSecretVisible);

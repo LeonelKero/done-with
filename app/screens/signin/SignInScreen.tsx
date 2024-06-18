@@ -13,9 +13,11 @@ interface LoginCredentials {
 }
 
 const SignInScreen = () => {
-  const [credentials, setCredentials] = useState<LoginCredentials>(
-    {} as LoginCredentials
-  );
+  // const [credentials, setCredentials] = useState<LoginCredentials>(
+  //   {} as LoginCredentials
+  // );
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <RootContainer>
@@ -30,34 +32,29 @@ const SignInScreen = () => {
           <View style={styles.inputsSection}>
             <DWTextInput
               placeholder="Username"
-              defaultValue=""
+              value={username}
               inputType="default"
               isSecure={false}
               keyboardType="email-address"
-              getText={(text) =>
-                setCredentials({
-                  ...credentials,
-                  username: text,
-                })
-              }
+              getText={(text) => setUsername(text)}
               Icon={<Entypo name="email" color={color.gray} size={20} />}
             />
             <DWTextInput
               placeholder="Password"
-              defaultValue=""
+              value={password}
               inputType="secure-secret"
               isSecure={true}
               keyboardType="default"
-              getText={(text) =>
-                setCredentials({ ...credentials, password: text })
-              }
+              getText={(text) => setPassword(text)}
               Icon={<Entypo name="key" color={color.gray} size={20} />}
             />
           </View>
         </View>
         <DWButton
           btnText={"Login"}
-          handleSignInPressed={() => console.log("Credentials", credentials)}
+          handleSignInPressed={() =>
+            console.log("Credentials", { username, password })
+          }
           customStyle={{}}
           disabled={false}
         />
