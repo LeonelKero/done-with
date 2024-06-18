@@ -2,19 +2,20 @@ import { Entypo } from "@expo/vector-icons";
 import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { object, string } from "yup";
 import DWButton from "../../components/button/DWButton";
 import DWTextInput from "../../components/input/DWTextInput";
 import DWAppLogo from "../../components/logo/DWAppLogo";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
+import DWText from "../../components/text/DWText";
 
-interface LoginCredentials {
-  username: string;
-  password: string;
-}
+const validationSchema = object({
+  username: string().email().required().label("Email"),
+  password: string().min(8).required().label("Password"),
+});
 
 const SignInScreen = () => {
-
   return (
     <RootContainer>
       <View style={styles.container}>
@@ -24,12 +25,12 @@ const SignInScreen = () => {
             text={styles.textLogo}
             done={styles.done}
           />
-          {/* <DWText customStyle={styles.loginText}>Login</DWText> */}
           <Formik
             initialValues={{ username: "", password: "" }}
             onSubmit={(values) => console.log("VALUES ARE", values)}
+            validationSchema={validationSchema}
           >
-            {({ values, handleChange, handleSubmit }) => (
+            {({ values, errors, isValid, handleChange, handleSubmit }) => (
               <View style={styles.formView}>
                 <View style={styles.inputsSection}>
                   <DWTextInput
@@ -41,6 +42,7 @@ const SignInScreen = () => {
                     getText={handleChange("username")}
                     Icon={<Entypo name="email" color={color.gray} size={20} />}
                   />
+                  <DWText customStyle={{color: color.deepRed, fontSize: 16, marginBottom: 8,  paddingHorizontal: 16}}>{errors.username}</DWText>
                   <DWTextInput
                     placeholder="Password"
                     value={values.password}
@@ -50,12 +52,13 @@ const SignInScreen = () => {
                     getText={handleChange("password")}
                     Icon={<Entypo name="key" color={color.gray} size={20} />}
                   />
+                  <DWText customStyle={{color: color.deepRed}}>{errors.password}</DWText>
                 </View>
                 <DWButton
                   btnText={"Login"}
                   handleSignInPressed={handleSubmit}
                   customStyle={{}}
-                  disabled={false}
+                  disabled={!isValid}
                 />
               </View>
             )}
@@ -76,11 +79,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     // backgroundColor: color.primary,
   },
-  formView:{
+  formView: {
     // backgroundColor: color.third,
-    height: '60%',
+    height: "60%",
     // top: 40,
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
   },
   inputsSection: {
     marginTop: 64,

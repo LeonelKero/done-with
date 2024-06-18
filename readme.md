@@ -39,6 +39,7 @@ Hands on React Native application development
 - React native 0.74
 - React native gesture handler 2.16.x
 - Formik 2.4.6
+- Yup 1.4.0
 
 # Screens
 
