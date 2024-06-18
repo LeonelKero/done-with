@@ -1,5 +1,6 @@
 import { Entypo } from "@expo/vector-icons";
-import React, { useState } from "react";
+import { Formik } from "formik";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import DWButton from "../../components/button/DWButton";
 import DWTextInput from "../../components/input/DWTextInput";
@@ -13,11 +14,6 @@ interface LoginCredentials {
 }
 
 const SignInScreen = () => {
-  // const [credentials, setCredentials] = useState<LoginCredentials>(
-  //   {} as LoginCredentials
-  // );
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <RootContainer>
@@ -29,35 +25,42 @@ const SignInScreen = () => {
             done={styles.done}
           />
           {/* <DWText customStyle={styles.loginText}>Login</DWText> */}
-          <View style={styles.inputsSection}>
-            <DWTextInput
-              placeholder="Username"
-              value={username}
-              inputType="default"
-              isSecure={false}
-              keyboardType="email-address"
-              getText={(text) => setUsername(text)}
-              Icon={<Entypo name="email" color={color.gray} size={20} />}
-            />
-            <DWTextInput
-              placeholder="Password"
-              value={password}
-              inputType="secure-secret"
-              isSecure={true}
-              keyboardType="default"
-              getText={(text) => setPassword(text)}
-              Icon={<Entypo name="key" color={color.gray} size={20} />}
-            />
-          </View>
+          <Formik
+            initialValues={{ username: "", password: "" }}
+            onSubmit={(values) => console.log("VALUES ARE", values)}
+          >
+            {({ values, handleChange, handleSubmit }) => (
+              <View style={styles.formView}>
+                <View style={styles.inputsSection}>
+                  <DWTextInput
+                    placeholder="Username"
+                    value={values.username}
+                    inputType="default"
+                    isSecure={false}
+                    keyboardType="email-address"
+                    getText={handleChange("username")}
+                    Icon={<Entypo name="email" color={color.gray} size={20} />}
+                  />
+                  <DWTextInput
+                    placeholder="Password"
+                    value={values.password}
+                    inputType="secure-secret"
+                    isSecure={true}
+                    keyboardType="default"
+                    getText={handleChange("password")}
+                    Icon={<Entypo name="key" color={color.gray} size={20} />}
+                  />
+                </View>
+                <DWButton
+                  btnText={"Login"}
+                  handleSignInPressed={handleSubmit}
+                  customStyle={{}}
+                  disabled={false}
+                />
+              </View>
+            )}
+          </Formik>
         </View>
-        <DWButton
-          btnText={"Login"}
-          handleSignInPressed={() =>
-            console.log("Credentials", { username, password })
-          }
-          customStyle={{}}
-          disabled={false}
-        />
       </View>
     </RootContainer>
   );
@@ -72,6 +75,12 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     justifyContent: "space-between",
     // backgroundColor: color.primary,
+  },
+  formView:{
+    // backgroundColor: color.third,
+    height: '60%',
+    // top: 40,
+    justifyContent: 'space-between'
   },
   inputsSection: {
     marginTop: 64,
