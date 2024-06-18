@@ -23,7 +23,7 @@ const DWTextInput = ({
   getText,
 }: Props) => {
   // const [value, setValue] = useState<string>(defaultValue);
-  const [isSecretVisible, setSecretVisible] = useState(false);
+  // const [isSecretVisible, setSecretVisible] = useState(false);
   const [isSecret, setSecret] = useState(isSecure);
   // TODO: Get typed value from parent
 
@@ -44,7 +44,7 @@ const DWTextInput = ({
         clearButtonMode="always"
         placeholder={placeholder}
       ></TextInput>
-      {inputType == "secure-secret" && value && (
+      {/* {inputType == "secure-secret" && value && (
         <Pressable
           onPress={() => {
             setSecretVisible(!isSecretVisible);
@@ -58,7 +58,7 @@ const DWTextInput = ({
             color={color.softDark}
           />
         </Pressable>
-      )}
+      )} */}
     </View>
   );
 };
