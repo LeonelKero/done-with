@@ -7,6 +7,7 @@ import DWFormField from "../../components/form/DWFormField";
 import DWAppLogo from "../../components/logo/DWAppLogo";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
+import DWSubmitButton from "../../components/form/DWSubmitButton";
 
 const validationSchema = object({
   username: string().email().required().label("Email"),
@@ -64,12 +65,7 @@ const SignInScreen = () => {
                     setFieldTouched={setFieldTouched}
                   />
                 </View>
-                <DWButton
-                  btnText={"Login"}
-                  handleSignInPressed={handleSubmit}
-                  customStyle={{}}
-                  disabled={!isValid}
-                />
+                <DWSubmitButton title="Login" />
               </View>
             )}
           </Formik>
