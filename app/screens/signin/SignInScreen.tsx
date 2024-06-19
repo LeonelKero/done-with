@@ -1,11 +1,9 @@
-import { Entypo } from "@expo/vector-icons";
 import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { object, string } from "yup";
 import DWButton from "../../components/button/DWButton";
-import DWErrorText from "../../components/error/DWErrorText";
-import DWTextInput from "../../components/input/DWTextInput";
+import DWFormField from "../../components/form/DWFormField";
 import DWAppLogo from "../../components/logo/DWAppLogo";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
@@ -41,33 +39,29 @@ const SignInScreen = () => {
             }) => (
               <View style={styles.formView}>
                 <View style={styles.inputsSection}>
-                  <DWTextInput
-                    placeholder="Username"
+                  <DWFormField
+                    field={"username"}
+                    placeholder={"Your email"}
+                    iconName={"email"}
+                    errors={errors}
                     value={values.username}
-                    inputType="default"
                     isSecure={false}
-                    keyboardType="email-address"
-                    getText={handleChange("username")}
-                    Icon={<Entypo name="email" color={color.gray} size={20} />}
-                    onBlur={() => setFieldTouched("username")}
+                    touched={touched}
+                    keyboardType={"email-address"}
+                    handleChange={handleChange}
+                    setFieldTouched={setFieldTouched}
                   />
-                  <DWErrorText
-                    message={errors.username}
-                    isVisible={touched.username}
-                  />
-                  <DWTextInput
-                    placeholder="Password"
+                  <DWFormField
+                    field={"password"}
+                    placeholder={"Password"}
+                    iconName={"key"}
+                    errors={errors}
                     value={values.password}
-                    inputType="secure-secret"
                     isSecure={true}
-                    keyboardType="default"
-                    getText={handleChange("password")}
-                    Icon={<Entypo name="key" color={color.gray} size={20} />}
-                    onBlur={() => setFieldTouched("password")}
-                  />
-                  <DWErrorText
-                    message={errors.password}
-                    isVisible={touched.password}
+                    touched={touched}
+                    keyboardType={"default"}
+                    handleChange={handleChange}
+                    setFieldTouched={setFieldTouched}
                   />
                 </View>
                 <DWButton
