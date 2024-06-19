@@ -8,10 +8,10 @@ interface Props {
   value: string;
   isSecure: boolean;
   keyboardType: "default" | "email-address" | "number-pad";
-  inputType: "default" | "secure-secret";
+  inputMode: "none" | "text" | "decimal" | "numeric" | "tel" | "search"  | "email" | "url";
   getText: (text: string) => void;
   Icon: ReactNode;
-  onBlur: () => void
+  onBlur: () => void;
 }
 
 const DWTextInput = ({
@@ -19,7 +19,7 @@ const DWTextInput = ({
   value,
   isSecure = false,
   keyboardType = "default",
-  inputType = "default",
+  inputMode = "none",
   Icon,
   onBlur,
   getText,
@@ -27,7 +27,6 @@ const DWTextInput = ({
   // const [value, setValue] = useState<string>(defaultValue);
   // const [isSecretVisible, setSecretVisible] = useState(false);
   const [isSecret, setSecret] = useState(isSecure);
-  // TODO: Get typed value from parent
 
   return (
     <View style={styles.container}>
@@ -35,11 +34,10 @@ const DWTextInput = ({
       <TextInput
         style={styles.input}
         defaultValue=""
-        onChangeText={(text) => {
-          getText(text);
-        }}
+        onChangeText={getText}
         keyboardType={keyboardType}
         autoCapitalize="none"
+        inputMode={inputMode}
         value={value}
         autoCorrect={false}
         secureTextEntry={isSecret}

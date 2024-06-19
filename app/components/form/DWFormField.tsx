@@ -1,9 +1,32 @@
 import { Entypo } from "@expo/vector-icons";
+import { FormikErrors, FormikTouched } from "formik";
 import React from "react";
 import { StyleSheet } from "react-native";
 import color from "../../config/color";
 import DWErrorText from "../error/DWErrorText";
 import DWTextInput from "../input/DWTextInput";
+
+// type formFieldsSchema = {
+//   username: string;
+//   password: string;
+// };
+
+// interface Props {
+//   field: string;
+//   placeholder: string;
+//   iconName: "email" | "key";
+//   errors: FormikErrors<formFieldsSchema>;
+//   value: string;
+//   isSecure: boolean;
+//   touched: FormikTouched<formFieldsSchema>;
+//   keyboardType: "default" | "email-address" | "number-pad";
+//   handleChange: (e: React.ChangeEvent<any>) => void;
+//   setFieldTouched: (
+//     field: string,
+//     isTouched?: boolean,
+//     shouldValidate?: boolean
+//   ) => Promise<void | FormikErrors<formFieldsSchema>>;
+// }
 
 const DWFormField = ({
   field,
@@ -22,7 +45,7 @@ const DWFormField = ({
       <DWTextInput
         placeholder={placeholder}
         value={value}
-        inputType="default"
+        inputMode="none"
         isSecure={isSecure}
         keyboardType={keyboardType}
         getText={handleChange(field)}
