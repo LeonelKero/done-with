@@ -11,6 +11,7 @@ interface Props {
   inputType: "default" | "secure-secret";
   getText: (text: string) => void;
   Icon: ReactNode;
+  onBlur: () => void
 }
 
 const DWTextInput = ({
@@ -20,6 +21,7 @@ const DWTextInput = ({
   keyboardType = "default",
   inputType = "default",
   Icon,
+  onBlur,
   getText,
 }: Props) => {
   // const [value, setValue] = useState<string>(defaultValue);
@@ -43,6 +45,7 @@ const DWTextInput = ({
         secureTextEntry={isSecret}
         clearButtonMode="always"
         placeholder={placeholder}
+        onBlur={onBlur}
       ></TextInput>
       {/* {inputType == "secure-secret" && value && (
         <Pressable

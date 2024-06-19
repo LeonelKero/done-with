@@ -4,11 +4,11 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { object, string } from "yup";
 import DWButton from "../../components/button/DWButton";
+import DWErrorText from "../../components/error/DWErrorText";
 import DWTextInput from "../../components/input/DWTextInput";
 import DWAppLogo from "../../components/logo/DWAppLogo";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
-import DWText from "../../components/text/DWText";
 
 const validationSchema = object({
   username: string().email().required().label("Email"),
@@ -30,7 +30,15 @@ const SignInScreen = () => {
             onSubmit={(values) => console.log("VALUES ARE", values)}
             validationSchema={validationSchema}
           >
-            {({ values, errors, isValid, handleChange, handleSubmit }) => (
+            {({
+              values,
+              errors,
+              isValid,
+              handleChange,
+              handleSubmit,
+              setFieldTouched,
+              touched,
+            }) => (
               <View style={styles.formView}>
                 <View style={styles.inputsSection}>
                   <DWTextInput
@@ -41,8 +49,12 @@ const SignInScreen = () => {
                     keyboardType="email-address"
                     getText={handleChange("username")}
                     Icon={<Entypo name="email" color={color.gray} size={20} />}
+                    onBlur={() => setFieldTouched("username")}
                   />
-                  <DWText customStyle={{color: color.deepRed, fontSize: 16, marginBottom: 8,  paddingHorizontal: 16}}>{errors.username}</DWText>
+                  <DWErrorText
+                    message={errors.username}
+                    isVisible={touched.username}
+                  />
                   <DWTextInput
                     placeholder="Password"
                     value={values.password}
@@ -51,8 +63,12 @@ const SignInScreen = () => {
                     keyboardType="default"
                     getText={handleChange("password")}
                     Icon={<Entypo name="key" color={color.gray} size={20} />}
+                    onBlur={() => setFieldTouched("password")}
                   />
-                  <DWText customStyle={{color: color.deepRed}}>{errors.password}</DWText>
+                  <DWErrorText
+                    message={errors.password}
+                    isVisible={touched.password}
+                  />
                 </View>
                 <DWButton
                   btnText={"Login"}
