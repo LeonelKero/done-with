@@ -6,6 +6,7 @@ import color from "./app/config/color";
 import RootContainer from "./app/screens/RootContainer";
 import SignInScreen from "./app/screens/signin/SignInScreen";
 import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
+import PostListingScreen from "./app/screens/post/PostListingScreen";
 
 const pickerItems = [
   {
@@ -44,7 +45,7 @@ const pickerItems = [
 ];
 
 export default function App() {
-  return ( <SignInScreen />
+  return ( <PostListingScreen />
     // <RootContainer>
     //    <DWInput
     //     placeholder="First name"
