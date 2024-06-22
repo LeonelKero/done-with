@@ -50,7 +50,9 @@ const DWFormField = ({
         keyboardType={keyboardType}
         getText={handleChange(field)}
         onBlur={() => setFieldTouched(field)}
-        Icon={<Entypo name={iconName} color={color.gray} size={20} />}
+        Icon={
+          iconName && <Entypo name={iconName} color={color.gray} size={20} />
+        }
       />
       <DWErrorText message={errors[field]} isVisible={touched[field]} />
     </>
