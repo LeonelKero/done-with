@@ -19,7 +19,7 @@ const DWTextInput = ({
   value,
   isSecure = false,
   keyboardType = "default",
-  inputMode = "none",
+  inputMode = "text",
   Icon,
   onBlur,
   getText,
