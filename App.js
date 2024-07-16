@@ -9,47 +9,8 @@ import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
 import PostListingScreen from "./app/screens/post/PostListingScreen";
 import DWSwitch from "./app/components/switch/DWSwitch";
 
-const pickerItems = [
-  {
-    name: "Technology",
-    value: 1,
-    Icon: (
-      <MaterialCommunityIcons name={"laptop"} size={24} color={color.gray} />
-    ),
-  },
-  {
-    name: "Furnitures",
-    value: 2,
-    Icon: (
-      <MaterialCommunityIcons
-        name={"table-furniture"}
-        size={24}
-        color={color.gray}
-      />
-    ),
-  },
-  {
-    name: "Clothing",
-    value: 3,
-    Icon: (
-      <MaterialCommunityIcons name={"glasses"} size={24} color={color.gray} />
-    ),
-  },
-];
-
 export default function App() {
-  return (
-    <PostListingScreen />
-    // <RootContainer>
-    //   <DWPicker
-    //     Icon={
-    //       <MaterialIcons name="category" size={16} color={color.softDark} />
-    //     }
-    //     placeholder="Item category"
-    //     pickerItems={pickerItems}
-    //   />
-    // </RootContainer>
-  );
+  return <PostListingScreen />;
 }
 
 const styles = StyleSheet.create({

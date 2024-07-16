@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 15,
-    marginTop: 16,
     backgroundColor: color.white,
+    marginBottom:16
   },
   close: {
     width: 30,

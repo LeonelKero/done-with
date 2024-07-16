@@ -1,7 +1,7 @@
 import { Entypo } from "@expo/vector-icons";
 import { FormikErrors, FormikTouched } from "formik";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWErrorText from "../error/DWErrorText";
 import DWTextInput from "../input/DWTextInput";
@@ -41,7 +41,7 @@ const DWFormField = ({
   setFieldTouched,
 }) => {
   return (
-    <>
+    <View style={styles.container}>
       <DWTextInput
         placeholder={placeholder}
         value={value}
@@ -55,10 +55,14 @@ const DWFormField = ({
         }
       />
       <DWErrorText message={errors[field]} isVisible={touched[field]} />
-    </>
+    </View>
   );
 };
 
 export default DWFormField;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container:{
+    marginBottom: 16
+  }
+});
