@@ -7,17 +7,14 @@ import RootContainer from "./app/screens/RootContainer";
 import SignInScreen from "./app/screens/signin/SignInScreen";
 import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
 import PostListingScreen from "./app/screens/post/PostListingScreen";
+import DWSwitch from "./app/components/switch/DWSwitch";
 
 const pickerItems = [
   {
     name: "Technology",
     value: 1,
     Icon: (
-      <MaterialCommunityIcons
-        name={"laptop"}
-        size={24}
-        color={color.gray}
-      />
+      <MaterialCommunityIcons name={"laptop"} size={24} color={color.gray} />
     ),
   },
   {
@@ -35,36 +32,23 @@ const pickerItems = [
     name: "Clothing",
     value: 3,
     Icon: (
-      <MaterialCommunityIcons
-        name={"glasses"}
-        size={24}
-        color={color.gray}
-      />
+      <MaterialCommunityIcons name={"glasses"} size={24} color={color.gray} />
     ),
   },
 ];
 
 export default function App() {
-  return ( <PostListingScreen />
+  return (
+    <PostListingScreen />
     // <RootContainer>
-    //    <DWInput
-    //     placeholder="First name"
-    //     Icon={
-    //       <MaterialCommunityIcons name="email" size={21} color={color.gray} />
-    //     }
-    //   />
-    //   <DWSwitch
-    //     text="Air plane mode"
-    //     getCurrentState={(state) => console.log("Switch state", state)}
-    //   /> 
-    //   {/* <DWPicker
+    //   <DWPicker
     //     Icon={
     //       <MaterialIcons name="category" size={16} color={color.softDark} />
     //     }
     //     placeholder="Item category"
     //     pickerItems={pickerItems}
-    //   /> */}
-    //  </RootContainer> 
+    //   />
+    // </RootContainer>
   );
 }
 

@@ -17,7 +17,7 @@ interface Props {
   placeholder: string;
   Icon: ReactNode;
   pickerItems: PickerItems[];
-  handlePress: () => void;
+  handleSelectedCategory: (item: PickerItems) => void;
 }
 
 interface PickerItems {
@@ -26,7 +26,7 @@ interface PickerItems {
   Icon: ReactNode;
 }
 
-const DWPicker = ({ placeholder, Icon, pickerItems }: Props) => {
+const DWPicker = ({ placeholder, Icon, pickerItems, handleSelectedCategory }: Props) => {
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
   const handlePress = () => setModalVisible(!isModalVisible);
   const [selectedCategory, setSelectedCategory] = useState<PickerItems>(
@@ -81,6 +81,7 @@ const DWPicker = ({ placeholder, Icon, pickerItems }: Props) => {
                     Icon={category.Icon}
                     onPress={() => {
                       setSelectedCategory(category);
+                      handleSelectedCategory(category)
                       setModalVisible(false);
                     }}
                   />
@@ -102,8 +103,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 32,
+    paddingHorizontal: 16,
     paddingVertical: 8,
+    borderRadius: 15,
+    marginTop: 16,
     backgroundColor: color.white,
   },
   close: {
