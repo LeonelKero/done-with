@@ -1,32 +1,9 @@
 import { Entypo } from "@expo/vector-icons";
-import { FormikErrors, FormikTouched } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWErrorText from "../error/DWErrorText";
 import DWTextInput from "../input/DWTextInput";
-
-// type formFieldsSchema = {
-//   username: string;
-//   password: string;
-// };
-
-// interface Props {
-//   field: string;
-//   placeholder: string;
-//   iconName: "email" | "key";
-//   errors: FormikErrors<formFieldsSchema>;
-//   value: string;
-//   isSecure: boolean;
-//   touched: FormikTouched<formFieldsSchema>;
-//   keyboardType: "default" | "email-address" | "number-pad";
-//   handleChange: (e: React.ChangeEvent<any>) => void;
-//   setFieldTouched: (
-//     field: string,
-//     isTouched?: boolean,
-//     shouldValidate?: boolean
-//   ) => Promise<void | FormikErrors<formFieldsSchema>>;
-// }
 
 const DWFormField = ({
   field,
@@ -35,6 +12,7 @@ const DWFormField = ({
   errors,
   value,
   isSecure,
+  maxLines = 1,
   touched,
   keyboardType,
   handleChange,
@@ -45,6 +23,7 @@ const DWFormField = ({
       <DWTextInput
         placeholder={placeholder}
         value={value}
+        maxLines={maxLines}
         inputMode="none"
         isSecure={isSecure}
         keyboardType={keyboardType}
@@ -62,7 +41,7 @@ const DWFormField = ({
 export default DWFormField;
 
 const styles = StyleSheet.create({
-  container:{
-    marginBottom: 16
-  }
+  container: {
+    marginBottom: 16,
+  },
 });

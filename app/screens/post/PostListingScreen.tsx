@@ -105,6 +105,7 @@ const PostListingScreen = () => {
                 placeholder={"Short description of the publication"}
                 iconName={undefined}
                 errors={errors}
+                maxLines={3}
                 value={values.description}
                 isSecure={false}
                 touched={touched}
@@ -127,8 +128,8 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 32,
     paddingVertical: 16,
-    borderWidth: 1,
-    borderColor: "red",
+    // borderWidth: 1,
+    // borderColor: "red",
   },
   inputs: {},
 });

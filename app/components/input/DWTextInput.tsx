@@ -1,14 +1,22 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { ReactNode, useState } from "react";
-import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import color from "../../config/color";
 
 interface Props {
   placeholder: string;
   value: string;
   isSecure: boolean;
+  maxLines: number;
   keyboardType: "default" | "email-address" | "number-pad";
-  inputMode: "none" | "text" | "decimal" | "numeric" | "tel" | "search"  | "email" | "url";
+  inputMode:
+    | "none"
+    | "text"
+    | "decimal"
+    | "numeric"
+    | "tel"
+    | "search"
+    | "email"
+    | "url";
   getText: (text: string) => void;
   Icon: ReactNode;
   onBlur: () => void;
@@ -19,6 +27,7 @@ const DWTextInput = ({
   value,
   isSecure = false,
   keyboardType = "default",
+  maxLines = 1,
   inputMode = "text",
   Icon,
   onBlur,
@@ -39,27 +48,13 @@ const DWTextInput = ({
         autoCapitalize="none"
         inputMode={inputMode}
         value={value}
+        numberOfLines={maxLines}
         autoCorrect={false}
         secureTextEntry={isSecret}
         clearButtonMode="always"
         placeholder={placeholder}
         onBlur={onBlur}
       ></TextInput>
-      {/* {inputType == "secure-secret" && value && (
-        <Pressable
-          onPress={() => {
-            setSecretVisible(!isSecretVisible);
-            setSecret(isSecretVisible);
-          }}
-          style={styles.showHideSecret}
-        >
-          <MaterialCommunityIcons
-            name={isSecretVisible ? "eye" : "eye-off"}
-            size={20}
-            color={color.softDark}
-          />
-        </Pressable>
-      )} */}
     </View>
   );
 };
