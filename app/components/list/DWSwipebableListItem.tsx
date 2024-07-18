@@ -13,6 +13,7 @@ interface Props {
   onPress: () => void;
   // renderLeftActions: ReactNode;
   renderRightActions: ReactNode;
+  subtitleNumberOfLines: number;
 }
 
 const DWSwipebableListItem = ({
@@ -21,6 +22,7 @@ const DWSwipebableListItem = ({
   subtitle,
   onPress = () => {},
   renderRightActions = <></>,
+  subtitleNumberOfLines: numberOfLines
 }: // renderLeftActions = <></>,
 Props) => {
   return (
@@ -35,7 +37,7 @@ Props) => {
             <View style={styles.info}>
               <View style={styles.details}>
                 <DWText customStyle={styles.title}>{title}</DWText>
-                <DWText customStyle={styles.subTitle}>{subtitle}</DWText>
+                <DWText customStyle={styles.subTitle} numberOfLines={numberOfLines}>{subtitle}</DWText>
               </View>
               <MaterialCommunityIcons
                 name="chevron-right"

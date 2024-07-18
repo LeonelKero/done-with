@@ -11,7 +11,7 @@ const fakeData = [
   {
     id: 1,
     name: "Leonel ka",
-    content: "leonel ka drop a document for you.",
+    content: "leonel ka drop a document for ka drop a document for ka drop a document for ka drop a document for ka drop a document for ka drop a document for you.",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const fakeData = [
   {
     id: 3,
     name: "Santa",
-    content: "Santa is not far from here!",
+    content: "Said: Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!",
   },
 ];
 
@@ -46,6 +46,7 @@ const MessagesScreen = () => {
             image={require("../../assets/nature.jpeg")}
             title={message.name}
             subtitle={message.content}
+            subtitleNumberOfLines={3}
             renderRightActions={
               <DWItemAction
                 actionName="Delete"
