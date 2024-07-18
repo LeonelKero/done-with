@@ -30,6 +30,7 @@ Hands on React Native application development
 - See offer details
 - Publish new offer
 - Assign category
+- Message offer's publisher
 
 ## Tech-Stack
 
