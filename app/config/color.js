@@ -5,9 +5,16 @@ export default {
   lightBlue: '#007ea7',
   deepRed: '#ce0033',
   white: "#fff",
+  black: "#000000",
+  darkTeal: "#003C43",
   softDark: "#4f4d4d",
   lightGray: "#e5e5e5",
   gray: '#727071',
   softGray: '#9faaae1',
-  warm: '#d38b17'
+  warm: '#d38b17',
+  violet: '#2e236c',
+  pink: '#AF47D2',
+  sky: '#AF47D2',
+  greeny: '#50B498',
+  pastel: '#36BA98',
 };

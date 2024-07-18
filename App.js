@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 import color from "./app/config/color";
-import MessagesScreen from "./app/screens/messages/MessagesScreen";
+import PostListingScreen from "./app/screens/post/PostListingScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <PostListingScreen />;
 }
 
 const styles = StyleSheet.create({

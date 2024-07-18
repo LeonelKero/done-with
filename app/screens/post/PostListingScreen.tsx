@@ -18,28 +18,233 @@ const publishSchema = object({
 
 const categories = [
   {
-    name: "Technology",
+    name: "Computers",
     value: 1,
     Icon: (
-      <MaterialCommunityIcons name={"laptop"} size={24} color={color.gray} />
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.lightBlue,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons name={"laptop"} size={24} color={color.white} />
+      </View>
     ),
   },
   {
     name: "Furnitures",
     value: 2,
     Icon: (
-      <MaterialCommunityIcons
-        name={"table-furniture"}
-        size={24}
-        color={color.gray}
-      />
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.primary,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"table-furniture"}
+          size={24}
+          color={color.white}
+        />
+      </View>
     ),
   },
   {
     name: "Clothing",
     value: 3,
     Icon: (
-      <MaterialCommunityIcons name={"glasses"} size={24} color={color.gray} />
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.softDark,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"shoe-formal"}
+          size={24}
+          color={color.white}
+        />
+      </View>
+    ),
+  },
+  {
+    name: "Cameras",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.warm,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons name={"camera"} size={24} color={color.white} />
+      </View>
+    ),
+  },
+  {
+    name: "Movies",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.deepRed,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"movie-play"}
+          size={24}
+          color={color.white}
+        />
+      </View>
+    ),
+  },
+  {
+    name: "Books",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.secondary,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"book-edit"}
+          size={24}
+          color={color.white}
+        />
+      </View>
+    ),
+  },
+  {
+    name: "Games",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.third,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"google-controller"}
+          size={24}
+          color={color.white}
+        />
+      </View>
+    ),
+  },
+  {
+    name: "Musics",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.darkTeal,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"earbuds"}
+          size={24}
+          color={color.white}
+        />
+      </View>
+    ),
+  },
+  {
+    name: "Cars",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.violet,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons name={"car"} size={24} color={color.white} />
+      </View>
+    ),
+  },
+  {
+    name: "Sports",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.pastel,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"basketball"}
+          size={24}
+          color={color.white}
+        />
+      </View>
+    ),
+  },
+  {
+    name: "Others",
+    value: 3,
+    Icon: (
+      <View
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: 20,
+          backgroundColor: color.gray,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <MaterialCommunityIcons
+          name={"apple-finder"}
+          size={24}
+          color={color.white}
+        />
+      </View>
     ),
   },
 ];
@@ -87,6 +292,7 @@ const PostListingScreen = () => {
                 setFieldTouched={setFieldTouched}
               />
               <DWPicker
+                numberOfColumns={3}
                 handleSelectedCategory={(cat) =>
                   setFieldValue("category", cat.name)
                 }
@@ -97,7 +303,6 @@ const PostListingScreen = () => {
                     color={color.softDark}
                   />
                 }
-                placeholder="Item category"
                 pickerItems={categories}
               />
               <DWFormField

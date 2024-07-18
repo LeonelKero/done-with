@@ -9,12 +9,11 @@ import {
   View,
 } from "react-native";
 import color from "../../config/color";
-import HorizontalSerparator from "../separetor/HorizontalSerparator";
 import DWText from "../text/DWText";
 import DWPickerItem from "./DWPickerItem";
 
 interface Props {
-  placeholder: string;
+  numberOfColumns: number;
   Icon: ReactNode;
   pickerItems: PickerItems[];
   handleSelectedCategory: (item: PickerItems) => void;
@@ -26,7 +25,12 @@ interface PickerItems {
   Icon: ReactNode;
 }
 
-const DWPicker = ({ placeholder, Icon, pickerItems, handleSelectedCategory }: Props) => {
+const DWPicker = ({
+  numberOfColumns,
+  Icon,
+  pickerItems,
+  handleSelectedCategory,
+}: Props) => {
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
   const handlePress = () => setModalVisible(!isModalVisible);
   const [selectedCategory, setSelectedCategory] = useState<PickerItems>(
@@ -40,7 +44,7 @@ const DWPicker = ({ placeholder, Icon, pickerItems, handleSelectedCategory }: Pr
           <View style={styles.detail}>
             {selectedCategory ? selectedCategory.Icon : Icon}
             <DWText customStyle={styles.text}>
-              {selectedCategory ? selectedCategory.name : placeholder}
+              {selectedCategory ? selectedCategory.name : ""}
             </DWText>
           </View>
           <MaterialCommunityIcons
@@ -74,14 +78,14 @@ const DWPicker = ({ placeholder, Icon, pickerItems, handleSelectedCategory }: Pr
               <FlatList
                 data={pickerItems}
                 keyExtractor={(item) => item.name}
-                ItemSeparatorComponent={HorizontalSerparator}
+                // ItemSeparatorComponent={HorizontalSerparator}
+                numColumns={numberOfColumns}
                 renderItem={({ item: category }) => (
                   <DWPickerItem
-                    item={category.name}
-                    Icon={category.Icon}
+                    item={category}
                     onPress={() => {
                       setSelectedCategory(category);
-                      handleSelectedCategory(category)
+                      handleSelectedCategory(category);
                       setModalVisible(false);
                     }}
                   />
@@ -99,7 +103,8 @@ export default DWPicker;
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    // width: "100%",
+    // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 15,
     backgroundColor: color.white,
-    marginBottom:16
+    marginBottom: 16,
   },
   close: {
     width: 30,
@@ -119,6 +124,7 @@ const styles = StyleSheet.create({
   },
   detail: {
     flexDirection: "row",
+    alignItems: "center",
   },
   modalTop: {
     flexDirection: "row",

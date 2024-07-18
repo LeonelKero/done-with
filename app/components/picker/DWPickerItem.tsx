@@ -1,19 +1,24 @@
 import { ReactNode } from "react";
 import { Pressable, StyleSheet } from "react-native";
-import color from "../../config/color";
 import DWText from "../text/DWText";
+import color from "../../config/color";
 
 interface Props {
-  item: string;
-  Icon: ReactNode;
+  item: Category;
   onPress: () => void;
 }
 
-const DWPickerItem = ({ item, Icon, onPress }: Props) => {
+interface Category {
+  name: string;
+  Icon: ReactNode;
+  iconBgColor?: string;
+}
+
+const DWPickerItem = ({ item, onPress }: Props) => {
   return (
     <Pressable onPress={onPress} style={styles.container}>
-      {Icon}
-      <DWText customStyle={styles.text}>{item}</DWText>
+      {item.Icon}
+      <DWText customStyle={styles.text}>{item.name}</DWText>
     </Pressable>
   );
 };
@@ -22,13 +27,18 @@ export default DWPickerItem;
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: color.lightBlue,
     paddingVertical: 16,
-    borderRadius: 15,
-    flexDirection: 'row',
-    alignItems: 'center'
+    width: '32%',
+    // borderRadius: 15,
+    alignItems: "center",
+    // backgroundColor: color.white,
+    margin: 2,
+    // borderWidth: .2,
+    // borderColor: color.softGray
   },
-  text:{
-    paddingHorizontal: 16
-  }
+  text: {
+    paddingHorizontal: 8,
+    marginTop: 8,
+    fontSize: 16,
+  },
 });
