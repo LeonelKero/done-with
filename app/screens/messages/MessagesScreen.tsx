@@ -55,15 +55,15 @@ const MessagesScreen = () => {
                 onPress={() => handleDelete(message.id)}
               />
             }
-            renderLeftActions={
-              <DWItemAction
-                actionName="Archive"
-                iconName={"archive"}
-                iconColor={color.white}
-                iconSize={30}
-                onPress={() => console.log("Action archive ", message)}
-              />
-            }
+            // renderLeftActions={
+            //   <DWItemAction
+            //     actionName="Archive"
+            //     iconName={"archive"}
+            //     iconColor={color.white}
+            //     iconSize={30}
+            //     onPress={() => console.log("Action archive ", message)}
+            //   />
+            // }
           />
         )}
         keyExtractor={(item) => item.id.toString()}

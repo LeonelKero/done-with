@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { ReactNode } from "react";
 import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -10,7 +11,7 @@ interface Props {
   title: string;
   subtitle: string;
   onPress: () => void;
-  renderLeftActions: ReactNode;
+  // renderLeftActions: ReactNode;
   renderRightActions: ReactNode;
 }
 
@@ -20,20 +21,27 @@ const DWSwipebableListItem = ({
   subtitle,
   onPress = () => {},
   renderRightActions = <></>,
-  renderLeftActions = <></>,
-}: Props) => {
+}: // renderLeftActions = <></>,
+Props) => {
   return (
     <GestureHandlerRootView>
       <Swipeable
-        renderLeftActions={() => renderLeftActions}
+        // renderLeftActions={() => renderLeftActions}
         renderRightActions={() => renderRightActions}
       >
         <TouchableHighlight onPress={onPress} underlayColor={color.lightBlue}>
           <View style={styles.container}>
             <Image source={image} resizeMode="cover" style={styles.imgHolder} />
             <View style={styles.info}>
-              <DWText customStyle={styles.title}>{title}</DWText>
-              <DWText customStyle={styles.subTitle}>{subtitle}</DWText>
+              <View style={styles.details}>
+                <DWText customStyle={styles.title}>{title}</DWText>
+                <DWText customStyle={styles.subTitle}>{subtitle}</DWText>
+              </View>
+              <MaterialCommunityIcons
+                name="chevron-right"
+                size={24}
+                color={color.softGray}
+              />
             </View>
           </View>
         </TouchableHighlight>
@@ -49,7 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     // borderColor: "lightgray",
     // borderWidth: 2,
-    paddingHorizontal: 16,
+    paddingHorizontal: 32,
     width: "100%",
     paddingVertical: 16,
     backgroundColor: color.white,
@@ -61,7 +69,12 @@ const styles = StyleSheet.create({
   },
   info: {
     marginStart: 16,
+    flexDirection: "row",
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
   },
+  details: {},
   title: {
     fontWeight: "600",
     fontSize: 20,
