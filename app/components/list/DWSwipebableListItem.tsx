@@ -76,7 +76,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  details: {},
+  details: {
+    width: '90%'
+  },
   title: {
     fontWeight: "600",
     fontSize: 20,
