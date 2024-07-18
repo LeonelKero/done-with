@@ -102,7 +102,7 @@ const PostListingScreen = () => {
               />
               <DWFormField
                 field={"description"}
-                placeholder={"Short description of the publication"}
+                placeholder={"Short description of this publication"}
                 iconName={undefined}
                 errors={errors}
                 maxLines={3}
