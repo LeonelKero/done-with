@@ -1,15 +1,17 @@
-import { Image, StyleSheet } from "react-native";
-import DWText from "./app/components/text/DWText";
+import { StyleSheet } from "react-native";
+import DWImageInput from "./app/components/image/DWImageInput";
 import color from "./app/config/color";
 import RootContainer from "./app/screens/RootContainer";
-import DWImageInput from "./app/components/image/DWImageInput";
 
-const sample = require("./app/assets/necher.jpeg")
+const sample = require("./app/assets/necher.jpeg");
 
 export default function App() {
   return (
     <RootContainer>
-      <Image source={sample} width={80} height={80} />
+      <DWImageInput
+        imageUri={sample}
+        customStyle={{ width: 60, height: 60, borderRadius: 30 }}
+      />
     </RootContainer>
   );
 }

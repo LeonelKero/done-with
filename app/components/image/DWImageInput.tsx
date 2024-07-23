@@ -1,8 +1,13 @@
-import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import {
+  Image,
+  ImageURISource,
+  StyleSheet,
+  View
+} from "react-native";
 
 interface Props {
-  imageUri: string;
+  imageUri: ImageURISource;
   customStyle?: object;
   onChangeHandle?: (newUri: string) => void;
 }
@@ -11,7 +16,7 @@ const DWImageInput = ({ imageUri, customStyle, onChangeHandle }: Props) => {
   return (
     <View>
       <Image
-        source={require(imageUri)}
+        source={imageUri}
         resizeMode="cover"
         style={[styles.image, customStyle]}
       />
