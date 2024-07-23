@@ -1,9 +1,17 @@
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
+import DWText from "./app/components/text/DWText";
 import color from "./app/config/color";
-import PostListingScreen from "./app/screens/post/PostListingScreen";
+import RootContainer from "./app/screens/RootContainer";
+import DWImageInput from "./app/components/image/DWImageInput";
+
+const sample = require("./app/assets/necher.jpeg")
 
 export default function App() {
-  return <PostListingScreen />;
+  return (
+    <RootContainer>
+      <Image source={sample} width={80} height={80} />
+    </RootContainer>
+  );
 }
 
 const styles = StyleSheet.create({
