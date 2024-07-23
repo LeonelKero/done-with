@@ -9,7 +9,7 @@ interface Props {
 
 const DWImageInput = ({ imageUri, customStyle, onChangeHandle }: Props) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Image
         source={imageUri}
         resizeMode="cover"
@@ -22,9 +22,16 @@ const DWImageInput = ({ imageUri, customStyle, onChangeHandle }: Props) => {
 export default DWImageInput;
 
 const styles = StyleSheet.create({
+  container: {
+    overflow: "hidden",
+    padding: 4,
+    // borderWidth: 1,
+    // borderColor: 'dodgerblue',
+    // width: 'auto'
+  },
   image: {
     width: 60,
     height: 60,
-    borderRadius: 30,
+    borderRadius: 8,
   },
 });
