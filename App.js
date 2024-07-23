@@ -8,10 +8,7 @@ const sample = require("./app/assets/necher.jpeg");
 export default function App() {
   return (
     <RootContainer>
-      <DWImageInput
-        imageUri={sample}
-        customStyle={{ width: 60, height: 60, borderRadius: 30 }}
-      />
+      <DWImageInput imageUri={sample} />
     </RootContainer>
   );
 }

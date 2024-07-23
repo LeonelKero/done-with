@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Image,
-  ImageURISource,
-  StyleSheet,
-  View
-} from "react-native";
+import { Image, ImageURISource, StyleSheet, View } from "react-native";
 
 interface Props {
   imageUri: ImageURISource;
@@ -30,5 +25,6 @@ const styles = StyleSheet.create({
   image: {
     width: 60,
     height: 60,
+    borderRadius: 30,
   },
 });
