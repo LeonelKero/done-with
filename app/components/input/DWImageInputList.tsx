@@ -3,9 +3,9 @@ import { ImageURISource, StyleSheet, View } from "react-native";
 import DWImageInput from "../image/DWImageInput";
 
 interface Props {
-  imageUris: ImageURISource[];
+  imageUris?: ImageURISource[];
   onAddImage: (imageUri: ImageURISource) => void;
-  onRemoveImage: (imageUri: ImageURISource) => void;
+  onRemoveImage?: (imageUri: ImageURISource) => void;
 }
 
 const DWImageInputList = ({ imageUris, onAddImage, onRemoveImage }: Props) => {

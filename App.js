@@ -7,12 +7,15 @@ import DWImageInputList from "./app/components/input/DWImageInputList";
 const sample = require("./app/assets/necher.jpeg");
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]);
+  const [imageUris, setImageUris] = useState<import("react-native").ImageURISource>([]);
+
+const handleAdd = (uri) => {}
+
   return (
     <RootContainer>
       <DWImageInputList
         imageUris={imageUris}
-        onAddImage={(uri) => setImageUris(...imageUris, uri)}
+        onAddImage={handleAdd}
       />
     </RootContainer>
   );
