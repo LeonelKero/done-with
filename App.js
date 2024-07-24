@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { StyleSheet } from "react-native";
-import DWImageInput from "./app/components/image/DWImageInput";
 import color from "./app/config/color";
 import RootContainer from "./app/screens/RootContainer";
+import DWImageInputList from "./app/components/input/DWImageInputList";
 
 const sample = require("./app/assets/necher.jpeg");
 
 export default function App() {
+  const [imageUris, setImageUris] = useState([]);
   return (
     <RootContainer>
-      <DWImageInput imageUri={sample} />
+      <DWImageInputList
+        imageUris={imageUris}
+        onAddImage={(uri) => setImageUris(...imageUris, uri)}
+      />
     </RootContainer>
   );
 }
