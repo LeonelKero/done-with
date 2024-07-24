@@ -25,9 +25,6 @@ const styles = StyleSheet.create({
   container: {
     overflow: "hidden",
     padding: 4,
-    // borderWidth: 1,
-    // borderColor: 'dodgerblue',
-    // width: 'auto'
   },
   image: {
     width: 60,
