@@ -4,7 +4,7 @@ import DWImageInput from "../image/DWImageInput";
 
 interface Props {
   imageUris?: ImageURISource[];
-  onAddImage: (imageUri: ImageURISource) => void;
+  onAddImage?: (imageUri: ImageURISource) => void;
   onRemoveImage?: (imageUri: ImageURISource) => void;
 }
 
@@ -18,7 +18,7 @@ const DWImageInputList = ({ imageUris, onAddImage, onRemoveImage }: Props) => {
           onChangeHandle={() => onRemoveImage(uri)}
         />
       ))}
-      // Another input image for adding
+      <DWImageInput onChangeHandle={(uri) => onAddImage(uri)} />
     </View>
   );
 };

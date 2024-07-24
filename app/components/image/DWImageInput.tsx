@@ -2,9 +2,9 @@ import React from "react";
 import { Image, ImageURISource, StyleSheet, View } from "react-native";
 
 interface Props {
-  imageUri: ImageURISource;
+  imageUri?: ImageURISource;
   customStyle?: object;
-  onChangeHandle?: (newUri: string) => void;
+  onChangeHandle?: (newUri: ImageURISource) => void;
 }
 
 const DWImageInput = ({ imageUri, customStyle, onChangeHandle }: Props) => {
