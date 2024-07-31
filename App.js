@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
+import { Image, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import DWImageInputList from "./app/components/input/DWImageInputList";
 import color from "./app/config/color";
 import RootContainer from "./app/screens/RootContainer";
 import DWText from "./app/components/text/DWText";
+import DWButton from "./app/components/button/DWButton";
 
 const sample = require("./app/assets/necher.jpeg");
 
 export default function App() {
+  const [imgUri, setImgUri] = useState();
   // const [imageUris, setImageUris] = useState([]);
 
   // const handleAdd = (uri) => setImageUris([...imageUris, uri]);
@@ -19,6 +21,15 @@ export default function App() {
     const permission = await ImagePicker.requestCameraPermissionsAsync();
     if (!permission.granted)
       alert("This application needs acces to Camera in order to word properly");
+  };
+
+  const selectImageHandler = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.canceled) setImgUri(result.assets[0].uri);
+    } catch (error) {
+      console.log("Error selecting image", error);
+    }
   };
 
   useEffect(() => {
@@ -33,7 +44,12 @@ export default function App() {
         onRemoveImage={handleRemove}
       /> */}
 
-      <DWText>Some text</DWText>
+      <DWButton
+        btnText="Select image"
+        handlePress={selectImageHandler}
+        disabled={false}
+      />
+      <Image source={{ uri: imgUri }} style={{ width: 200, height: 200 }} />
     </RootContainer>
   );
 }
