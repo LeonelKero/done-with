@@ -3,9 +3,11 @@ import { Image, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import DWImageInputList from "./app/components/input/DWImageInputList";
 import color from "./app/config/color";
+import {MaterialCommunityIcons} from "@expo/vector-icons"
 import RootContainer from "./app/screens/RootContainer";
 import DWText from "./app/components/text/DWText";
 import DWButton from "./app/components/button/DWButton";
+import DWIconButton from "./app/components/button/DWIconButton";
 
 const sample = require("./app/assets/necher.jpeg");
 
@@ -50,6 +52,10 @@ export default function App() {
         disabled={false}
       />
       <Image source={{ uri: imgUri }} style={{ width: 200, height: 200 }} />
+      <DWIconButton
+        Icon={<MaterialCommunityIcons name="camera" size={48} color={color.gray}/>}
+        onPress={selectImageHandler}
+      />
     </RootContainer>
   );
 }

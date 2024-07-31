@@ -26,5 +26,7 @@ const DWImageInputList = ({ imageUris, onAddImage, onRemoveImage }: Props) => {
 export default DWImageInputList;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flexDirection: 'row'
+  },
 });
