@@ -1,11 +1,11 @@
 import React from "react";
-import { ImageURISource, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import DWImageInput from "../image/DWImageInput";
 
 interface Props {
-  imageUris?: ImageURISource[];
-  onAddImage?: (imageUri: ImageURISource) => void;
-  onRemoveImage?: (imageUri: ImageURISource) => void;
+  imageUris?: string[];
+  onAddImage?: (imageUri: string) => void;
+  onRemoveImage?: (imageUri: string) => void;
 }
 
 const DWImageInputList = ({ imageUris, onAddImage, onRemoveImage }: Props) => {
@@ -27,6 +27,6 @@ export default DWImageInputList;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: "row",
   },
 });
