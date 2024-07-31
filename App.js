@@ -10,11 +10,17 @@ const sample = require("./app/assets/necher.jpeg");
 export default function App() {
   const [imageUris, setImageUris] = useState([]);
 
-  const handleAdd = (uri) => {};
+  const handleAdd = (uri) => setImageUris([...imageUris, uri]);
+  const handleRemove = (uri) =>
+    setImageUris(imageUris.filter((img) => img !== uri));
 
   return (
     <RootContainer>
-      <DWImageInputList imageUris={imageUris} onAddImage={handleAdd} />
+      <DWImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
+      />
       <DWText>Some text</DWText>
     </RootContainer>
   );
