@@ -22,24 +22,24 @@ export default function App() {
   // const handleRemove = (uri) =>
   //   setImageUris(imageUris.filter((img) => img !== uri));
 
-  const requestCameraPermission = async () => {
-    const permission = await ImagePicker.requestCameraPermissionsAsync();
-    if (!permission.granted)
-      alert("This application needs acces to Camera in order to word properly");
-  };
+  // const requestCameraPermission = async () => {
+  //   const permission = await ImagePicker.requestCameraPermissionsAsync();
+  //   if (!permission.granted)
+  //     alert("This application needs acces to Camera in order to word properly");
+  // };
 
-  const selectImageHandler = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) setImgUri(result.assets[0].uri);
-    } catch (error) {
-      console.log("Error selecting image", error);
-    }
-  };
+  // const selectImageHandler = async () => {
+  //   try {
+  //     const result = await ImagePicker.launchImageLibraryAsync();
+  //     if (!result.canceled) setImgUri(result.assets[0].uri);
+  //   } catch (error) {
+  //     console.log("Error selecting image", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    requestCameraPermission();
-  }, []);
+  // useEffect(() => {
+  //   requestCameraPermission();
+  // }, []);
 
   return (
     <>

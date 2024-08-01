@@ -1,15 +1,18 @@
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
 import { Formik } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
-import { number, object, string } from "yup";
+import { array, number, object, string } from "yup";
 import DWFormField from "../../components/form/DWFormField";
 import DWSubmitButton from "../../components/form/DWSubmitButton";
+import DWImageInputList from "../../components/input/DWImageInputList";
 import DWPicker from "../../components/picker/DWPicker";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
 const publishSchema = object({
+  images: array().required().label("Pictures"),
   title: string().required().label("Title"),
   price: number().required().min(1).max(1000).label("Price"),
   category: string().required().label("Category"),
@@ -250,12 +253,28 @@ const categories = [
 ];
 
 const PostListingScreen = () => {
+  const requestCameraPermission = async () => {
+    const permission = await ImagePicker.requestCameraPermissionsAsync();
+    if (!permission.granted)
+      alert("This application needs to acces the Camera for this activity.");
+  };
+
+  useEffect(() => {
+    requestCameraPermission();
+  }, []);
+
   return (
     <RootContainer>
       <View style={styles.container}>
         <Formik
           onSubmit={(values) => console.log("Publish", values)}
-          initialValues={{ title: "", price: 0, category: "", description: "" }}
+          initialValues={{
+            images: [],
+            title: "",
+            price: 0,
+            category: "",
+            description: "",
+          }}
           validationSchema={publishSchema}
         >
           {({
@@ -267,6 +286,7 @@ const PostListingScreen = () => {
             setFieldTouched,
           }) => (
             <View style={styles.inputs}>
+              <DWImageInputList imageUris={values.images} />
               <DWFormField
                 field={"title"}
                 placeholder={"Publication's Title"}
@@ -337,4 +357,8 @@ const styles = StyleSheet.create({
     // borderColor: "red",
   },
   inputs: {},
+  // pictures: {
+  //   flexDirection: "row",
+  //   width: "100%",
+  // },
 });

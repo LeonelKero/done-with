@@ -23,7 +23,7 @@ export default DWIconButton;
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: color.softGray,
+    borderColor: color.lightGray,
     borderRadius: 8,
     margin: 3,
     width: 100,
