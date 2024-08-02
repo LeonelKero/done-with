@@ -16,12 +16,16 @@ interface Props {
 const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
   const { setFieldValue, values } = useFormikContext();
 
-  console.log("VALUES", values)
+  // console.log("VALUES", values)
 
   const pickImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) setFieldValue("My images", result.assets[0].uri);
+      if (!result.canceled) {
+        const img = result.assets[0].uri
+        setFieldValue("images", img);
+        console.log("VALUES", values)
+      }
       // if (!result.canceled) setFieldValue("images", result.assets[0].uri);
     } catch (error) {
       console.error(error);
