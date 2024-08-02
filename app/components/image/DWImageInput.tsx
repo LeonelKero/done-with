@@ -1,21 +1,23 @@
 import React from "react";
-import { Image, ImageURISource, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 
 interface Props {
   imageUri?: string;
   customStyle?: object;
-  onChangeHandle?: (newUri: string) => void;
+  onChangeHandle?: () => void;
 }
 
 const DWImageInput = ({ imageUri, customStyle, onChangeHandle }: Props) => {
   return (
-    <View style={styles.container}>
-      <Image
-        source={{uri: imageUri}}
-        resizeMode="cover"
-        style={[styles.image, customStyle]}
-      />
-    </View>
+    <Pressable onPress={onChangeHandle}>
+      <View style={styles.container}>
+        <Image
+          source={{ uri: imageUri }}
+          resizeMode="cover"
+          style={[styles.image, customStyle]}
+        />
+      </View>
+    </Pressable>
   );
 };
 
@@ -27,8 +29,8 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     borderRadius: 8,
   },
 });

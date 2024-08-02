@@ -1,6 +1,5 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import { useFormikContext } from "formik";
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import color from "../../config/color";
@@ -14,24 +13,23 @@ interface Props {
 }
 
 const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
-  // const { setFieldValue, values } = useFormikContext();
   const [itemImages, setProductImages] = useState<string[]>(imageUris);
 
-  // console.log("VALUES", values)
-
-  const pickImage = async () => {
+  const chooseImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
       if (!result.canceled) {
         const img = result.assets[0].uri;
         setProductImages((old) => [...old, img]);
-        // setFieldValue("images", img);
-        // console.log("VALUES", values)
       }
-      // if (!result.canceled) setFieldValue("images", result.assets[0].uri);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const removeImage = (imgUri: string) => {
+    // Todo: Show alert and filter image table
+    console.log("Remove Image", imgUri);
   };
 
   return (
@@ -40,14 +38,15 @@ const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
         <DWImageInput
           key={index}
           imageUri={uri}
-          onChangeHandle={() => onRemoveImage(uri)}
+          onChangeHandle={() => removeImage(uri)}
         />
       ))}
       <DWIconButton
         Icon={
-          <MaterialCommunityIcons name="camera" size={48} color={color.gray} />
+          <MaterialCommunityIcons name="camera" size={40} color={color.gray} />
         }
-        onPress={() => pickImage()}
+        customStyle={styles.imgSelector}
+        onPress={chooseImage}
       />
     </View>
   );
@@ -61,5 +60,9 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     // borderColor: "dodgerblue",
     marginBottom: 8,
+  },
+  imgSelector: {
+    width: 80,
+    height: 80,
   },
 });
