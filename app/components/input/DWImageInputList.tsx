@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useFormikContext } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWIconButton from "../button/DWIconButton";
@@ -14,7 +14,8 @@ interface Props {
 }
 
 const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
-  const { setFieldValue, values } = useFormikContext();
+  // const { setFieldValue, values } = useFormikContext();
+  const [itemImages, setProductImages] = useState<string[]>(imageUris);
 
   // console.log("VALUES", values)
 
@@ -22,9 +23,10 @@ const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
       if (!result.canceled) {
-        const img = result.assets[0].uri
-        setFieldValue("images", img);
-        console.log("VALUES", values)
+        const img = result.assets[0].uri;
+        setProductImages((old) => [...old, img]);
+        // setFieldValue("images", img);
+        // console.log("VALUES", values)
       }
       // if (!result.canceled) setFieldValue("images", result.assets[0].uri);
     } catch (error) {
@@ -34,7 +36,7 @@ const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
 
   return (
     <View style={styles.container}>
-      {imageUris.map((uri, index) => (
+      {itemImages.map((uri, index) => (
         <DWImageInput
           key={index}
           imageUri={uri}
