@@ -6,11 +6,12 @@ interface Props {
   Icon: ReactNode;
   onPress: () => void;
   disabled?: boolean;
+  customStyle?: object
 }
 
-const DWIconButton = ({ Icon, disabled = false, onPress }: Props) => {
+const DWIconButton = ({ Icon, disabled = false, onPress, customStyle = {} }: Props) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyle]}>
       <Pressable style={styles.btn} disabled={disabled} onPress={onPress}>
         {Icon}
       </Pressable>
@@ -26,8 +27,8 @@ const styles = StyleSheet.create({
     borderColor: color.lightGray,
     borderRadius: 8,
     margin: 3,
-    width: 100,
-    height: 100,
+    width: 90,
+    height: 90,
     backgroundColor: color.lightGray
   },
   btn: {
