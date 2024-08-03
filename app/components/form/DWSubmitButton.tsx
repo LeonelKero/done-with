@@ -14,7 +14,6 @@ const DWSubmitButton = ({ title }: Props) => {
       <DWButton
         btnText={title}
         handlePress={handleSubmit}
-        customStyle={{}}
         disabled={!isValid}
       />
     </View>
