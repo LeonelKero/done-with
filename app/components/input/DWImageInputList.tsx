@@ -5,6 +5,7 @@ import { Alert, StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWIconButton from "../button/DWIconButton";
 import DWImageInput from "../image/DWImageInput";
+import { useFormikContext } from "formik";
 
 interface Props {
   imageUris: string[];
@@ -14,13 +15,18 @@ interface Props {
 
 const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
   const [itemImages, setProductImages] = useState<string[]>(imageUris);
+  const { errors, setFieldValue } = useFormikContext();
 
   const chooseImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
       if (!result.canceled) {
         const img = result.assets[0].uri;
-        setProductImages((old) => [...old, img]);
+        setProductImages((old) => {
+          const uris = [...old, img];
+          setFieldValue("images", uris);
+          return uris;
+        });
       }
     } catch (error) {
       console.error(error);
@@ -35,7 +41,11 @@ const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
         {
           text: "OK",
           onPress: () =>
-            setProductImages((olds) => olds.filter((uri) => uri !== imgUri)),
+            setProductImages((oldUris) => {
+              const mostRecentUris = oldUris.filter((uri) => uri !== imgUri);
+              setFieldValue("images", mostRecentUris);
+              return mostRecentUris;
+            }),
         },
         {
           text: "Cancel",
