@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWIconButton from "../button/DWIconButton";
 import DWImageInput from "../image/DWImageInput";
@@ -28,8 +28,21 @@ const DWImageInputList = ({ imageUris, onRemoveImage }: Props) => {
   };
 
   const removeImage = (imgUri: string) => {
-    // Todo: Show alert and filter image table
-    console.log("Remove Image", imgUri);
+    Alert.alert(
+      "Remove product image",
+      "Do you really want to remove this product image?",
+      [
+        {
+          text: "OK",
+          onPress: () =>
+            setProductImages((olds) => olds.filter((uri) => uri !== imgUri)),
+        },
+        {
+          text: "Cancel",
+          onPress: () => {},
+        },
+      ]
+    );
   };
 
   return (
