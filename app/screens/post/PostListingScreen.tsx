@@ -12,7 +12,7 @@ import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
 const publishSchema = object({
-  images: array().required().label("Pictures"),
+  images: array().of(string().required()).required().label("Pictures"),
   title: string().required().label("Title"),
   price: number().required().min(1).max(1000).label("Price"),
   category: string().required().label("Category"),
