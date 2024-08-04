@@ -8,9 +8,9 @@ import DWFormField from "../../components/form/DWFormField";
 import DWSubmitButton from "../../components/form/DWSubmitButton";
 import DWImageInputList from "../../components/input/DWImageInputList";
 import DWPicker from "../../components/picker/DWPicker";
+import DWText from "../../components/text/DWText";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
-import DWErrorText from "../../components/error/DWErrorText";
 
 const publishSchema = object({
   images: array().of(string()).required().label("Pictures"),
@@ -287,7 +287,16 @@ const PostListingScreen = () => {
             setFieldTouched,
           }) => (
             <View style={styles.inputs}>
-              <DWImageInputList imageUris={values.images} />
+              <>
+                <DWText
+                  customStyle={{ fontSize: 13, marginBottom: 4 }}
+                  numberOfLines={3}
+                >
+                  Select product images, and field the following form to publish
+                  your item.
+                </DWText>
+                <DWImageInputList imageUris={values.images} />
+              </>
               <DWFormField
                 field={"title"}
                 placeholder={"Publication's Title"}
@@ -326,10 +335,6 @@ const PostListingScreen = () => {
                     />
                   }
                   pickerItems={categories}
-                />
-                <DWErrorText
-                  message={errors.category}
-                  isVisible={touched.category}
                 />
               </>
               <DWFormField
