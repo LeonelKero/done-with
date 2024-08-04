@@ -1,5 +1,5 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import {
   FlatList,
   Modal,
@@ -36,6 +36,10 @@ const DWPicker = ({
   const [selectedCategory, setSelectedCategory] = useState<PickerItems>(
     pickerItems[0]
   );
+
+  useEffect(() => {
+    handleSelectedCategory(pickerItems[0]);
+  }, []);
 
   return (
     <>
