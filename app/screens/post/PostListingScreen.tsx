@@ -10,6 +10,7 @@ import DWImageInputList from "../../components/input/DWImageInputList";
 import DWPicker from "../../components/picker/DWPicker";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
+import DWErrorText from "../../components/error/DWErrorText";
 
 const publishSchema = object({
   images: array().of(string()).required().label("Pictures"),
@@ -311,20 +312,26 @@ const PostListingScreen = () => {
                 handleChange={handleChange}
                 setFieldTouched={setFieldTouched}
               />
-              <DWPicker
-                numberOfColumns={3}
-                handleSelectedCategory={(cat) =>
-                  setFieldValue("category", cat.name)
-                }
-                Icon={
-                  <MaterialIcons
-                    name="category"
-                    size={16}
-                    color={color.softDark}
-                  />
-                }
-                pickerItems={categories}
-              />
+              <>
+                <DWPicker
+                  numberOfColumns={3}
+                  handleSelectedCategory={(cat) =>
+                    setFieldValue("category", cat.name)
+                  }
+                  Icon={
+                    <MaterialIcons
+                      name="category"
+                      size={16}
+                      color={color.softDark}
+                    />
+                  }
+                  pickerItems={categories}
+                />
+                <DWErrorText
+                  message={errors.category}
+                  isVisible={touched.category}
+                />
+              </>
               <DWFormField
                 field={"description"}
                 placeholder={"Short description of this publication"}
