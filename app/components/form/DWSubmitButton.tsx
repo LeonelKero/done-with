@@ -4,9 +4,10 @@ import { StyleSheet, View } from "react-native";
 import DWButton from "../button/DWButton";
 interface Props {
   title: string;
+  disabled?: boolean
 }
 
-const DWSubmitButton = ({ title }: Props) => {
+const DWSubmitButton = ({ title, disabled }: Props) => {
   const { handleSubmit, isValid } = useFormikContext();
 
   return (
@@ -14,7 +15,7 @@ const DWSubmitButton = ({ title }: Props) => {
       <DWButton
         btnText={title}
         handlePress={handleSubmit}
-        disabled={!isValid}
+        disabled={!isValid || disabled}
       />
     </View>
   );

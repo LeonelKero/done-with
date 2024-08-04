@@ -345,7 +345,10 @@ const PostListingScreen = () => {
                 handleChange={handleChange}
                 setFieldTouched={setFieldTouched}
               />
-              <DWSubmitButton title="Publish" />
+              <DWSubmitButton
+                title="Publish"
+                disabled={values.images.length == 0}
+              />
             </View>
           )}
         </Formik>
