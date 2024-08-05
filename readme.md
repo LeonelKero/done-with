@@ -28,9 +28,10 @@ Hands on React Native application development
 - Sigup/Signin
 - Browser offers
 - See offer details
+- Gesture feature
 - Publish new offer
 - Assign category
-- Message offer's publisher
+- DM publisher
 
 ## Tech-Stack
 
