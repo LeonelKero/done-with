@@ -292,8 +292,8 @@ const PostListingScreen = () => {
                   customStyle={{ fontSize: 13, marginBottom: 4 }}
                   numberOfLines={3}
                 >
-                  Select product images, and field the following form to publish
-                  your item.
+                  Select product images, and fill the following form to publish
+                  your offer.
                 </DWText>
                 <DWImageInputList imageUris={values.images} />
               </>
