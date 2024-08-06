@@ -19,7 +19,10 @@ const DWImageInputList = ({ imageUris }: Props) => {
 
   const chooseImage = async () => {
     try {
-      const result = await ImagePicker.launchImageLibraryAsync();
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.5,
+      });
       if (!result.canceled) {
         const img = result.assets[0].uri;
         setProductImages((old) => {
