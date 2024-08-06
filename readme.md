@@ -17,10 +17,12 @@ Hands on React Native application development
 ## Topics
 
 - Component
+- Hooks
 - State
 - Action handler
 - Reactive native APi
 - Expo API
+- Permissions
 - Screens
 
 # Features
@@ -32,6 +34,8 @@ Hands on React Native application development
 - Publish new offer
 - Assign category
 - DM publisher
+- Item location
+- Upload images
 
 ## Tech-Stack
 
@@ -42,6 +46,7 @@ Hands on React Native application development
 - React native gesture handler 2.16.x
 - Formik 2.4.6
 - Yup 1.4.0
+- expo-location 17.x
 
 # Screens
 
