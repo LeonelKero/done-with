@@ -2,7 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useFormikContext } from "formik";
 import React, { useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import { Alert, ScrollView, StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWIconButton from "../button/DWIconButton";
 import DWImageInput from "../image/DWImageInput";
@@ -59,29 +59,31 @@ const DWImageInputList = ({ imageUris }: Props) => {
   };
 
   return (
-    <>
-      <View style={styles.container}>
-        {itemImages.map((uri, index) => (
-          <DWImageInput
-            key={index}
-            imageUri={uri}
-            onChangeHandle={() => removeImage(uri)}
-          />
-        ))}
-        <DWIconButton
-          Icon={
-            <MaterialCommunityIcons
-              name="camera"
-              size={40}
-              color={color.gray}
+    <View style={{ backgroundColor: "dodgerblue" }}>
+      <ScrollView horizontal>
+        <View style={styles.container}>
+          {itemImages.map((uri, index) => (
+            <DWImageInput
+              key={index}
+              imageUri={uri}
+              onChangeHandle={() => removeImage(uri)}
             />
-          }
-          customStyle={styles.imgSelector}
-          onPress={chooseImage}
-        />
-      </View>
+          ))}
+          <DWIconButton
+            Icon={
+              <MaterialCommunityIcons
+                name="camera"
+                size={40}
+                color={color.gray}
+              />
+            }
+            customStyle={styles.imgSelector}
+            onPress={chooseImage}
+          />
+        </View>
+      </ScrollView>
       {/* <DWErrorText message={errors["images"]} isVisible={touched["images"]} /> */}
-    </>
+    </View>
   );
 };
 
