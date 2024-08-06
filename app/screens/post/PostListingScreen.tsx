@@ -13,7 +13,11 @@ import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
 const publishSchema = object({
-  images: array().of(string()).required().label("Pictures"),
+  images: array()
+    .of(string())
+    .min(1, "Please select at least one image")
+    .required()
+    .label("Images"),
   title: string().required().label("Title"),
   price: number().required().min(1).max(1000).label("Price"),
   category: string().required().label("Category"),
@@ -292,8 +296,8 @@ const PostListingScreen = () => {
                   customStyle={{ fontSize: 13, marginBottom: 4 }}
                   numberOfLines={3}
                 >
-                  Select product images (at least one), and fill the following form to publish
-                  your offer.
+                  Select product images (at least one), and fill the following
+                  form to publish your offer.
                 </DWText>
                 <DWImageInputList imageUris={values.images} />
               </>
