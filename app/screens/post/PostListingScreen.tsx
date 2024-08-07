@@ -1,8 +1,8 @@
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import * as Location from "expo-location";
+// import * as Location from "expo-location";
 import { Formik } from "formik";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { array, number, object, string } from "yup";
 import DWFormField from "../../components/form/DWFormField";
@@ -11,6 +11,7 @@ import DWImageInputList from "../../components/input/DWImageInputList";
 import DWPicker from "../../components/picker/DWPicker";
 import DWText from "../../components/text/DWText";
 import color from "../../config/color";
+import useLocation from "../../hooks/useLocation";
 import RootContainer from "../RootContainer";
 
 const publishSchema = object({
@@ -264,7 +265,8 @@ interface Coordinate {
 }
 
 const PostListingScreen = () => {
-  const [location, setLocation] = useState<Coordinate>();
+  // const [location, setLocation] = useState<Coordinate>();
+  const { location } = useLocation();
 
   const requestCameraPermission = async () => {
     const cameraPermissionResponse =
@@ -273,19 +275,19 @@ const PostListingScreen = () => {
       alert("This application needs to acces the Camera for this activity.");
   };
 
-  const requestLocationPermission = async () => {
-    const locationPermissionResponse =
-      await Location.requestForegroundPermissionsAsync();
-    if (!locationPermissionResponse.granted) return;
-    const {
-      coords: { latitude, longitude },
-    } = await Location.getLastKnownPositionAsync();
-    setLocation({ latitude, longitude });
-  };
+  // const requestLocationPermission = async () => {
+  //   const locationPermissionResponse =
+  //     await Location.requestForegroundPermissionsAsync();
+  //   if (!locationPermissionResponse.granted) return;
+  //   const {
+  //     coords: { latitude, longitude },
+  //   } = await Location.getLastKnownPositionAsync();
+  //   setLocation({ latitude, longitude });
+  // };
 
   useEffect(() => {
     requestCameraPermission();
-    requestLocationPermission();
+    // requestLocationPermission();
   }, []);
 
   return (
