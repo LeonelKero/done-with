@@ -291,7 +291,7 @@ const PostListingScreen = () => {
     <RootContainer>
       <View style={styles.container}>
         <Formik
-          onSubmit={(values) => console.log("Publish", values)}
+          onSubmit={(values) => console.log("Publish", { ...values, location })}
           initialValues={{
             images: [],
             title: "",
