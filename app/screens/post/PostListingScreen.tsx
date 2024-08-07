@@ -285,13 +285,16 @@ const PostListingScreen = () => {
 
   useEffect(() => {
     requestCameraPermission();
+    requestLocationPermission();
   }, []);
 
   return (
     <RootContainer>
       <View style={styles.container}>
         <Formik
-          onSubmit={(values) => console.log("Publish", { ...values, location })}
+          onSubmit={(values) =>
+            console.log("Publish", { ...values, ...location })
+          }
           initialValues={{
             images: [],
             title: "",
