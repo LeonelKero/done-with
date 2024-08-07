@@ -14,16 +14,19 @@ Hands on React Native application development
 
 [Formik React Native](https://formik.org/docs/guides/react-native)
 
+[React Navigation](https://reactnavigation.org)
+
 ## Topics
 
 - Component
 - Hooks
 - State
 - Action handler
-- Reactive native APi
+- React native APi
 - Expo API
 - Permissions
 - Screens
+- Navigation
 
 # Features
 
@@ -41,12 +44,14 @@ Hands on React Native application development
 
 - Javascript/Typescript 5.x
 - React 18.2.0
+- Typescript 5.x
 - expo 51.0.x
 - React native 0.74
 - React native gesture handler 2.16.x
 - Formik 2.4.6
 - Yup 1.4.0
 - expo-location 17.x
+- @react-navigation/native 6.x and dependencies (react-native-screens react-native-safe-area-context)
 
 # Screens
 
