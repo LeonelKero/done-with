@@ -1,6 +1,5 @@
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-// import * as Location from "expo-location";
 import { Formik } from "formik";
 import React, { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
@@ -259,13 +258,7 @@ const categories = [
   },
 ];
 
-interface Coordinate {
-  latitude: number;
-  longitude: number;
-}
-
 const PostListingScreen = () => {
-  // const [location, setLocation] = useState<Coordinate>();
   const { location } = useLocation();
 
   const requestCameraPermission = async () => {
@@ -275,19 +268,8 @@ const PostListingScreen = () => {
       alert("This application needs to acces the Camera for this activity.");
   };
 
-  // const requestLocationPermission = async () => {
-  //   const locationPermissionResponse =
-  //     await Location.requestForegroundPermissionsAsync();
-  //   if (!locationPermissionResponse.granted) return;
-  //   const {
-  //     coords: { latitude, longitude },
-  //   } = await Location.getLastKnownPositionAsync();
-  //   setLocation({ latitude, longitude });
-  // };
-
   useEffect(() => {
     requestCameraPermission();
-    // requestLocationPermission();
   }, []);
 
   return (
