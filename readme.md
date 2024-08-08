@@ -52,6 +52,7 @@ Hands on React Native application development
 - Yup 1.4.0
 - expo-location 17.x
 - @react-navigation/native 6.x and dependencies (react-native-screens react-native-safe-area-context)
+- @react-navigation/native-stack 6.x
 
 # Screens
 
