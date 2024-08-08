@@ -1,17 +1,24 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import color from "./app/config/color";
 
-const UserScreen = () => (
+const UserScreen = ({ navigation }) => (
   <View>
     <Text>User screen</Text>
+    <Button
+      title="Go to details"
+      onPress={() => navigation.navigate("user-details")}
+    />
   </View>
 );
 
-const UserDetailScreen = () => (
+const UserDetailScreen = ({ navigation }) => (
   <View>
     <Text>User detail screen</Text>
+    <Pressable onPress={() => navigation.navigate("user")}>
+      <Text>Go Home</Text>
+    </Pressable>
   </View>
 );
 
