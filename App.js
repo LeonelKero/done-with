@@ -8,14 +8,14 @@ const UserScreen = ({ navigation }) => (
     <Text>User screen</Text>
     <Button
       title="Go to details"
-      onPress={() => navigation.navigate("user-details")}
+      onPress={() => navigation.navigate("user-details", { id: 7 })}
     />
   </View>
 );
 
-const UserDetailScreen = ({ navigation }) => (
+const UserDetailScreen = ({ navigation, route }) => (
   <View>
-    <Text>User detail screen</Text>
+    <Text>User detail screen with parameter {route.params.id}</Text>
     <Pressable onPress={() => navigation.navigate("user")}>
       <Text>Go Home</Text>
     </Pressable>
@@ -29,12 +29,12 @@ const StackNavigator = () => (
     <Stack.Screen
       name="user"
       component={UserScreen}
-      options={{ title: "User | wbt" }}
+      // options={{ title: "User | wbt" }}
     />
     <Stack.Screen
       name="user-details"
       component={UserDetailScreen}
-      options={{ title: "Details | wbt" }}
+      // options={{ title: "Details | wbt" }}
     />
   </Stack.Navigator>
 );
