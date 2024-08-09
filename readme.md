@@ -42,7 +42,6 @@ Hands on React Native application development
 
 ## Tech-Stack
 
-- Javascript/Typescript 5.x
 - React 18.2.0
 - Typescript 5.x
 - expo 51.0.x
