@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -53,13 +54,28 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "tomato" },
-        headerTintColor: "white",
-        tabBarStyle: {backgroundColor: 'white'}
+        tabBarActiveTintColor: "white",
+        tabBarActiveBackgroundColor: "dodgerblue",
       }}
     >
-      <Tab.Screen name="user" component={UserScreen} options={{tabBarLabel: 'My User'}}/>
-      <Tab.Screen name="user-details" component={UserDetailScreen} />
+      <Tab.Screen
+        name="Home"
+        component={UserScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={UserDetailScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="cog" size={size} color={color} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
