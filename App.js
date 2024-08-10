@@ -25,7 +25,12 @@ const UserDetailScreen = ({ navigation, route }) => (
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: { backgroundColor: "tomato" },
+      headerTintColor: "white",
+    }}
+  >
     <Stack.Screen
       name="user"
       component={UserScreen}
@@ -34,7 +39,10 @@ const StackNavigator = () => (
     <Stack.Screen
       name="user-details"
       component={UserDetailScreen}
-      // options={{ title: "Details | wbt" }}
+      // options={{
+      //   headerTintColor: "white",
+      //   headerStyle: {backgroundColor: "tomato"}
+      // }}
     />
   </Stack.Navigator>
 );
