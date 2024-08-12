@@ -21,7 +21,7 @@ const WelcomeScreen = ({ navigation }) => {
             btnText={"Register"}
             customStyle={styles.btnRegister}
             disabled={false}
-            handlePress={() => console.log("Register")}
+            handlePress={() => navigation.navigate("Sign Up")}
           />
         </View>
       </View>
