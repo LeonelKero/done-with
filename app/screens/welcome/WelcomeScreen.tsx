@@ -15,7 +15,7 @@ const WelcomeScreen = ({ navigation }) => {
             btnText={"Sign In"}
             disabled={false}
             customStyle={{}}
-            handlePress={() => console.log("Sign In")}
+            handlePress={() => navigation.navigate("Sign In")}
           />
           <DWButton
             btnText={"Register"}
