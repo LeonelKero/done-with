@@ -1,4 +1,4 @@
-import { Entypo } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import color from "../../config/color";
@@ -30,7 +30,13 @@ const DWFormField = ({
         getText={handleChange(field)}
         onBlur={() => setFieldTouched(field)}
         Icon={
-          iconName && <Entypo name={iconName} color={color.gray} size={20} />
+          iconName && (
+            <MaterialCommunityIcons
+              name={iconName}
+              color={color.gray}
+              size={20}
+            />
+          )
         }
       />
       <DWErrorText message={errors[field]} isVisible={touched[field]} />
