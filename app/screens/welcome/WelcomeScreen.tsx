@@ -14,12 +14,12 @@ const WelcomeScreen = () => {
           <DWButton
             btnText={"Sign In"}
             customStyle={{}}
-            handleSignInPressed={() => console.log("Sign In")}
+            handlePress={() => console.log("Sign In")}
           />
           <DWButton
             btnText={"Register"}
             customStyle={styles.btnRegister}
-            handleSignInPressed={() => console.log("Register")}
+            handlePress={() => console.log("Register")}
           />
         </View>
       </View>
