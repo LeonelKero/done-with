@@ -4,10 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import color from "./app/config/color";
-import AccountScreen from "./app/screens/account/AccountScreen";
-import SignInScreen from "./app/screens/signin/SignInScreen";
-import ProductImageScreen from "./app/screens/product/ProductImageScreen";
-import PostListingScreen from "./app/screens/post/PostListingScreen";
+import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
 
 const UserScreen = ({ navigation }) => (
   <View>
@@ -83,14 +80,12 @@ const TabNavigator = () => {
     </Tab.Navigator>
   );
 };
- <NavigationContainer>
-      {/* <StackNavigator /> */}
-      <TabNavigator />
-    </NavigationContainer>
+<NavigationContainer>
+  {/* <StackNavigator /> */}
+  <TabNavigator />
+</NavigationContainer>;
 export default function App() {
-  return (
-   <AccountScreen />
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
