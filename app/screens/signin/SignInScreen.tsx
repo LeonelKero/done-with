@@ -2,12 +2,11 @@ import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { object, string } from "yup";
-import DWButton from "../../components/button/DWButton";
 import DWFormField from "../../components/form/DWFormField";
+import DWSubmitButton from "../../components/form/DWSubmitButton";
 import DWAppLogo from "../../components/logo/DWAppLogo";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
-import DWSubmitButton from "../../components/form/DWSubmitButton";
 
 const validationSchema = object({
   username: string().email().required().label("Email"),
@@ -83,12 +82,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     paddingTop: 32,
     justifyContent: "space-between",
-    // backgroundColor: color.primary,
   },
   formView: {
-    // backgroundColor: color.third,
     height: "60%",
-    // top: 40,
     justifyContent: "space-between",
   },
   inputsSection: {
@@ -108,7 +104,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   loginText: {
-    // marginStart: 16,
   },
   textLogo: {
     color: color.primary,

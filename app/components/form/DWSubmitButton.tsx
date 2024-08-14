@@ -2,9 +2,10 @@ import { useFormikContext } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import DWButton from "../button/DWButton";
+
 interface Props {
   title: string;
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 const DWSubmitButton = ({ title, disabled }: Props) => {
@@ -25,8 +26,6 @@ export default DWSubmitButton;
 
 const styles = StyleSheet.create({
   container: {
-    // borderWidth: 1,
-    // borderColor: 'blue',
     marginTop: 32,
   },
 });

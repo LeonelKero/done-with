@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import color from "./app/config/color";
-import WelcomeScreen from "./app/screens/welcome/WelcomeScreen";
+import AuthNavigator from "./app/navigation/AuthNavigation";
 
 const UserScreen = ({ navigation }) => (
   <View>
@@ -80,12 +80,13 @@ const TabNavigator = () => {
     </Tab.Navigator>
   );
 };
-<NavigationContainer>
-  {/* <StackNavigator /> */}
-  <TabNavigator />
-</NavigationContainer>;
+
 export default function App() {
-  return <WelcomeScreen />;
+  return (
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
