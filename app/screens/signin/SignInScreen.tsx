@@ -2,12 +2,11 @@ import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { object, string } from "yup";
-import DWButton from "../../components/button/DWButton";
 import DWFormField from "../../components/form/DWFormField";
+import DWSubmitButton from "../../components/form/DWSubmitButton";
 import DWAppLogo from "../../components/logo/DWAppLogo";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
-import DWSubmitButton from "../../components/form/DWSubmitButton";
 
 const validationSchema = object({
   username: string().email().required().label("Email"),
@@ -29,15 +28,7 @@ const SignInScreen = () => {
             onSubmit={(values) => console.log("VALUES ARE", values)}
             validationSchema={validationSchema}
           >
-            {({
-              values,
-              errors,
-              isValid,
-              handleChange,
-              handleSubmit,
-              setFieldTouched,
-              touched,
-            }) => (
+            {({ values, errors, handleChange, setFieldTouched, touched }) => (
               <View style={styles.formView}>
                 <View style={styles.inputsSection}>
                   <DWFormField
