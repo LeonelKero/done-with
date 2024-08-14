@@ -8,7 +8,7 @@ interface Props {
   disabled?: boolean;
 }
 
-const DWSubmitButton = ({ title, disabled }: Props) => {
+const DWSubmitButton = ({ title, disabled = false }: Props) => {
   const { handleSubmit, isValid } = useFormikContext();
 
   return (
