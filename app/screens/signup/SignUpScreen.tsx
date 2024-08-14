@@ -88,7 +88,15 @@ const SignUpScreen = () => {
                 handleChange={handleChange}
                 setFieldTouched={setFieldTouched}
               />
-              <DWSubmitButton title="Sign Up" />
+              {values.confirmPassword !== values.password && (
+                <DWText customStyle={styles.confirmPass}>
+                  Confirm password does not match the password
+                </DWText>
+              )}
+              <DWSubmitButton
+                disabled={values.confirmPassword !== values.password}
+                title="Sign Up"
+              />
             </View>
           )}
         </Formik>
@@ -125,5 +133,10 @@ const styles = StyleSheet.create({
   form: {
     paddingHorizontal: 32,
     marginTop: 24,
+  },
+  confirmPass: {
+    fontSize: 14,
+    color: color.gray,
+    textAlign: "center",
   },
 });
