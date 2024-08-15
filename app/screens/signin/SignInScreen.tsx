@@ -35,6 +35,7 @@ const SignInScreen = () => {
                     field={"username"}
                     placeholder={"Your email"}
                     iconName={"email"}
+                    inputMode={"email"}
                     errors={errors}
                     value={values.username}
                     isSecure={false}
@@ -48,6 +49,7 @@ const SignInScreen = () => {
                     placeholder={"Password"}
                     iconName={"key"}
                     errors={errors}
+                    inputMode={"text"}
                     value={values.password}
                     isSecure={true}
                     touched={touched}
