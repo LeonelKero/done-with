@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import { object, string } from "yup";
 import DWFormField from "../../components/form/DWFormField";
 import DWSubmitButton from "../../components/form/DWSubmitButton";
@@ -15,6 +15,9 @@ const signupValidationSchema = object({
   password: string().min(8).required().label("Password"),
   confirmPassword: string().min(8).required().label("Confirm password"),
 });
+
+// const example = (txt: any) => console.log("TEXT", txt);
+
 
 const SignUpScreen = () => {
   return (
@@ -88,6 +91,7 @@ const SignUpScreen = () => {
                 handleChange={handleChange}
                 setFieldTouched={setFieldTouched}
               />
+              {/* <TextInput placeholder="Example if text input"/> */}
               {values.confirmPassword !== values.password && (
                 <DWText customStyle={styles.confirmPass}>
                   Confirm password does not match the password
