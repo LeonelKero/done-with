@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { object, string } from "yup";
 import DWFormField from "../../components/form/DWFormField";
 import DWSubmitButton from "../../components/form/DWSubmitButton";
@@ -16,95 +16,97 @@ const signupValidationSchema = object({
   confirmPassword: string().min(8).required().label("Confirm password"),
 });
 
-// const example = (txt: any) => console.log("TEXT", txt);
-
-
 const SignUpScreen = () => {
   return (
     <RootContainer>
-      <View style={styles.container}>
-        <DWAppLogo
-          logo={styles.logo}
-          text={styles.textLogo}
-          done={styles.done}
-        />
-        <DWText customStyle={styles.textMsg}>
-          Create your account by filling this form.
-        </DWText>
-        <Formik
-          initialValues={{
-            name: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-          }}
-          onSubmit={(values) => console.log("Sign Up", values)}
-          validationSchema={signupValidationSchema}
-        >
-          {({ values, errors, handleChange, touched, setFieldTouched }) => (
-            <View style={styles.form}>
-              <DWFormField
-                field={"name"}
-                placeholder={"Your name"}
-                iconName={"key"}
-                errors={errors}
-                value={values.name}
-                touched={touched}
-                isSecure={false}
-                keyboardType={"default"}
-                handleChange={handleChange}
-                setFieldTouched={setFieldTouched}
-              />
-              <DWFormField
-                field={"email"}
-                placeholder={"Your email"}
-                iconName={"email"}
-                errors={errors}
-                value={values.email}
-                touched={touched}
-                isSecure={false}
-                keyboardType={"email-address"}
-                handleChange={handleChange}
-                setFieldTouched={setFieldTouched}
-              />
-              <DWFormField
-                field={"password"}
-                placeholder={"Your password"}
-                iconName={"key"}
-                errors={errors}
-                value={values.password}
-                touched={touched}
-                isSecure={true}
-                keyboardType={"default"}
-                handleChange={handleChange}
-                setFieldTouched={setFieldTouched}
-              />
-              <DWFormField
-                field={"confirmPassword"}
-                placeholder={"Confirm password"}
-                iconName={"key"}
-                errors={errors}
-                value={values.confirmPassword}
-                touched={touched}
-                isSecure={true}
-                keyboardType={"default"}
-                handleChange={handleChange}
-                setFieldTouched={setFieldTouched}
-              />
-              {/* <TextInput placeholder="Example if text input"/> */}
-              {values.confirmPassword !== values.password && (
-                <DWText customStyle={styles.confirmPass}>
-                  Confirm password does not match the password
-                </DWText>
-              )}
-              <DWSubmitButton
-                disabled={values.confirmPassword !== values.password}
-                title="Sign Up"
-              />
-            </View>
-          )}
-        </Formik>
-      </View>
+      <ScrollView style={styles.scrollView}>
+        <View style={styles.container}>
+          <DWAppLogo
+            logo={styles.logo}
+            text={styles.textLogo}
+            done={styles.done}
+          />
+          <DWText customStyle={styles.textMsg}>
+            Create your account by filling this form.
+          </DWText>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
+            }}
+            onSubmit={(values) => console.log("Sign Up", values)}
+            validationSchema={signupValidationSchema}
+          >
+            {({ values, errors, handleChange, touched, setFieldTouched }) => (
+              <View style={styles.form}>
+                <DWFormField
+                  field={"name"}
+                  placeholder={"Your name"}
+                  iconName={"account"}
+                  inputMode={"text"}
+                  errors={errors}
+                  value={values.name}
+                  touched={touched}
+                  isSecure={false}
+                  keyboardType={"default"}
+                  handleChange={handleChange}
+                  setFieldTouched={setFieldTouched}
+                />
+                <DWFormField
+                  field={"email"}
+                  placeholder={"Your email"}
+                  iconName={"email"}
+                  inputMode={"email"}
+                  errors={errors}
+                  value={values.email}
+                  touched={touched}
+                  isSecure={false}
+                  keyboardType={"email-address"}
+                  handleChange={handleChange}
+                  setFieldTouched={setFieldTouched}
+                />
+                <DWFormField
+                  field={"password"}
+                  placeholder={"Your password"}
+                  iconName={"key"}
+                  errors={errors}
+                  inputMode={"text"}
+                  value={values.password}
+                  touched={touched}
+                  isSecure={true}
+                  keyboardType={"default"}
+                  handleChange={handleChange}
+                  setFieldTouched={setFieldTouched}
+                />
+                <DWFormField
+                  field={"confirmPassword"}
+                  placeholder={"Confirm password"}
+                  iconName={"key"}
+                  errors={errors}
+                  inputMode={"text"}
+                  value={values.confirmPassword}
+                  touched={touched}
+                  isSecure={true}
+                  keyboardType={"default"}
+                  handleChange={handleChange}
+                  setFieldTouched={setFieldTouched}
+                />
+                {values.confirmPassword !== values.password && (
+                  <DWText customStyle={styles.confirmPass}>
+                    Confirm password does not match the password
+                  </DWText>
+                )}
+                <DWSubmitButton
+                  disabled={values.confirmPassword !== values.password}
+                  title="Sign Up"
+                />
+              </View>
+            )}
+          </Formik>
+        </View>
+      </ScrollView>
     </RootContainer>
   );
 };
@@ -113,6 +115,9 @@ export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  scrollView: {
     flex: 1,
   },
   logo: {
