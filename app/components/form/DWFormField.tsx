@@ -15,6 +15,7 @@ const DWFormField = ({
   maxLines = 1,
   touched,
   keyboardType,
+  inputMode,
   handleChange,
   setFieldTouched,
 }) => {
@@ -24,7 +25,7 @@ const DWFormField = ({
         placeholder={placeholder}
         value={value}
         maxLines={maxLines}
-        inputMode="text"
+        inputMode={inputMode}
         isSecure={isSecure}
         keyboardType={keyboardType}
         getText={handleChange(field)}

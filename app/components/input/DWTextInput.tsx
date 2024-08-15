@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import color from "../../config/color";
 
@@ -33,7 +33,6 @@ const DWTextInput = ({
   onBlur,
   getText,
 }: Props) => {
-
   return (
     <View style={styles.container}>
       {Icon}
