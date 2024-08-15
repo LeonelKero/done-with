@@ -33,9 +33,6 @@ const DWTextInput = ({
   onBlur,
   getText,
 }: Props) => {
-  // const [value, setValue] = useState<string>(defaultValue);
-  // const [isSecretVisible, setSecretVisible] = useState(false);
-  const [isSecret, setSecret] = useState(isSecure);
 
   return (
     <View style={styles.container}>
@@ -50,7 +47,7 @@ const DWTextInput = ({
         value={value}
         numberOfLines={maxLines}
         autoCorrect={false}
-        secureTextEntry={isSecret}
+        secureTextEntry={isSecure}
         clearButtonMode="always"
         placeholder={placeholder}
         onBlur={onBlur}
