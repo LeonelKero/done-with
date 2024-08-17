@@ -10,7 +10,6 @@ import DWImageInput from "../image/DWImageInput";
 interface Props {
   imageUris: string[];
   onAddImage?: (imgUri: Promise<string>) => void;
-  // onRemoveImage?: (imageUri: string) => void;
 }
 
 const DWImageInputList = ({ imageUris }: Props) => {
@@ -98,8 +97,6 @@ export default DWImageInputList;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    // borderWidth: 1,
-    // borderColor: "dodgerblue",
     marginBottom: 8,
   },
   imgSelector: {
