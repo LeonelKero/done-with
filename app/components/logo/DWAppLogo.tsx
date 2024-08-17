@@ -2,13 +2,15 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import color from "../../config/color";
 
-
-interface Props{
-    logo: {},
-    text: {}, done:{}
+interface Props {
+  logo?: {};
+  text?: {};
+  done?: {};
 }
 
-const DWAppLogo = ({logo={}, text={}, done={}}:Props) => {
+// TODO: Add custon sub slogan below the app's namw
+
+const DWAppLogo = ({ logo = {}, text = {}, done = {} }: Props) => {
   return (
     <View style={[styles.logo, logo]}>
       <View style={styles.mainLogo}>
