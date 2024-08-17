@@ -308,6 +308,7 @@ const PostListingScreen = () => {
                 <DWImageInputList imageUris={values.images} />
               </>
               <DWFormField
+                inputMode={"text"}
                 field={"title"}
                 placeholder={"Publication's Title"}
                 iconName={undefined}
@@ -320,6 +321,7 @@ const PostListingScreen = () => {
                 setFieldTouched={setFieldTouched}
               />
               <DWFormField
+                inputMode={"numeric"}
                 field={"price"}
                 placeholder={"Item's Price"}
                 iconName={undefined}
@@ -348,6 +350,7 @@ const PostListingScreen = () => {
                 />
               </>
               <DWFormField
+                inputMode={"text"}
                 field={"description"}
                 placeholder={"Short description of this publication"}
                 iconName={undefined}
@@ -378,12 +381,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 32,
     paddingVertical: 16,
-    // borderWidth: 1,
-    // borderColor: "red",
   },
   inputs: {},
-  // pictures: {
-  //   flexDirection: "row",
-  //   width: "100%",
-  // },
 });
