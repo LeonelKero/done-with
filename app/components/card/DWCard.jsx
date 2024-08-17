@@ -1,16 +1,18 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
-const DWCard = ({ title, subTitle, image }) => {
+const DWCard = ({ title, subTitle, image, navigation }) => {
   return (
     <View style={styles.container}>
-      <Image source={image} resizeMode="cover" style={styles.image} />
-      <View style={styles.textContainer}>
-        <DWText customStyle={styles.title}>{title}</DWText>
-        <DWText customStyle={styles.subTitle}>{subTitle}</DWText>
-      </View>
+      <Pressable onPress={() => navigation.navigate("Feed Details")}>
+        <Image source={image} resizeMode="cover" style={styles.image} />
+        <View style={styles.textContainer}>
+          <DWText customStyle={styles.title}>{title}</DWText>
+          <DWText customStyle={styles.subTitle}>{subTitle}</DWText>
+        </View>
+      </Pressable>
     </View>
   );
 };
