@@ -39,7 +39,7 @@ const ListingsScreen = ({ navigation }) => {
           data={FakeListing}
           renderItem={({ item }) => (
             <DWCard
-              navigation={navigation}
+              onPress={() => navigation.navigate("Feed Details", item)}
               title={item.title}
               subTitle={`$ ${item.price}`}
               image={item.image}

@@ -1,24 +1,26 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import DWListItem from "../../components/list/DWListItem";
 import DWText from "../../components/text/DWText";
 import color from "../../config/color";
 import RootContainer from "../RootContainer";
 
-const ListingDetailsScreen = () => {
+const ListingDetailsScreen = ({ navigation, route }) => {
+  const productItem = route.params;
+
   return (
     <RootContainer>
       <View style={styles.top}>
         <Image
           style={styles.image}
-          source={require("../../assets/nature.jpeg")}
+          source={productItem?.image}
           resizeMode="contain"
         />
         <View style={styles.desc}>
-          <DWText customStyle={styles.title}>
-            Nature image around the globe
-          </DWText>
-          <DWText customStyle={styles.price}>$ 80</DWText>
+          <DWText customStyle={styles.title}>{productItem?.title}</DWText>
+          <DWText
+            customStyle={styles.price}
+          >{`$ ${productItem?.price}`}</DWText>
         </View>
       </View>
       <View style={styles.publisher}>

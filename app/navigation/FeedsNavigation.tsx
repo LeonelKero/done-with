@@ -6,8 +6,16 @@ const FeedStack = createNativeStackNavigator();
 
 const FeedNavigation = () => (
   <FeedStack.Navigator>
-    <FeedStack.Screen name="Feeds" component={ListingsScreen} options={{headerShown: false}} />
-    <FeedStack.Screen name="Feed Details" component={ListingDetailsScreen} />
+    <FeedStack.Screen
+      name="All Feeds"
+      component={ListingsScreen}
+      options={{ headerShown: false }}
+    />
+    <FeedStack.Screen
+      name="Feed Details"
+      component={ListingDetailsScreen}
+      options={{ headerShown: false }}
+    />
   </FeedStack.Navigator>
 );
 

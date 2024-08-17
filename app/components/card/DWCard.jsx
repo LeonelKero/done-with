@@ -3,17 +3,17 @@ import { Image, Pressable, StyleSheet, View } from "react-native";
 import color from "../../config/color";
 import DWText from "../text/DWText";
 
-const DWCard = ({ title, subTitle, image, navigation }) => {
+const DWCard = ({ title, subTitle, image, onPress }) => {
   return (
-    <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate("Feed Details")}>
+    <Pressable onPress={onPress}>
+      <View style={styles.container}>
         <Image source={image} resizeMode="cover" style={styles.image} />
         <View style={styles.textContainer}>
           <DWText customStyle={styles.title}>{title}</DWText>
           <DWText customStyle={styles.subTitle}>{subTitle}</DWText>
         </View>
-      </Pressable>
-    </View>
+      </View>
+    </Pressable>
   );
 };
 

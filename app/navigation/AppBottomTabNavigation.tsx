@@ -13,7 +13,7 @@ const AppBottomTabBar = () => {
     <BottomTab.Navigator>
       <BottomTab.Screen name="Feeds" component={FeedNavigation} />
       <BottomTab.Screen name="Create Post" component={PostListingScreen} />
-      <BottomTab.Screen name="Account" component={AccountScreen} />
+      <BottomTab.Screen name="Account" component={AccountScreen} options={{}} />
     </BottomTab.Navigator>
   );
 };
