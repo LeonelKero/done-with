@@ -5,7 +5,7 @@ import ListingsScreen from "../screens/listings/ListingsScreen";
 const FeedStack = createNativeStackNavigator();
 
 const FeedNavigation = () => (
-  <FeedStack.Navigator>
+  <FeedStack.Navigator screenOptions={{ presentation: "modal" }}>
     <FeedStack.Screen
       name="All Feeds"
       component={ListingsScreen}
