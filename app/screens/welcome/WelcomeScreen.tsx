@@ -9,7 +9,7 @@ const WelcomeScreen = ({ navigation }) => {
   return (
     <>
       <View style={styles.root}>
-        <DWAppLogo logo={{}} text={{}} done={{}} />
+        <DWAppLogo />
         <View style={styles.actionButtonGroup}>
           <DWButton
             btnText={"Sign In"}
