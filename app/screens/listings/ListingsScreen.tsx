@@ -1,7 +1,7 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import RootContainer from "../RootContainer";
+import { FlatList, StyleSheet, View } from "react-native";
 import DWCard from "../../components/card/DWCard";
+import RootContainer from "../RootContainer";
 
 const FakeListing = [
   {
@@ -30,7 +30,7 @@ const FakeListing = [
   },
 ];
 
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }) => {
   return (
     <RootContainer>
       <View style={styles.constainer}>
@@ -39,6 +39,7 @@ const ListingsScreen = () => {
           data={FakeListing}
           renderItem={({ item }) => (
             <DWCard
+              navigation={navigation}
               title={item.title}
               subTitle={`$ ${item.price}`}
               image={item.image}
