@@ -13,7 +13,7 @@ const validationSchema = object({
   password: string().min(8).required().label("Password"),
 });
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   return (
     <RootContainer>
       <View style={styles.container}>
