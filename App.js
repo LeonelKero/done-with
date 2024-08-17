@@ -6,6 +6,7 @@ import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import color from "./app/config/color";
 import AuthNavigator from "./app/navigation/AuthNavigation";
 import navigationTheme from "./app/navigation/navigationTheme";
+import AppBottomTabBar from "./app/navigation/AppBottomTabNavigation";
 
 const UserScreen = ({ navigation }) => (
   <View>
@@ -85,7 +86,8 @@ const TabNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
+      {/* <AuthNavigator /> */}
+      <AppBottomTabBar />
     </NavigationContainer>
   );
 }
