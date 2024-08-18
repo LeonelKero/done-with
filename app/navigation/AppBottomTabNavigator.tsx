@@ -1,20 +1,41 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import PostListingScreen from "../screens/post/PostListingScreen";
 import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedsNavigator";
+import DWCreateFreedButton from "./components/DWCreateFreedButton";
 
 const BottomTab = createBottomTabNavigator();
 
 const AppBottomTabBar = () => {
   return (
     <BottomTab.Navigator>
-      <BottomTab.Screen name="Feeds" component={FeedNavigator} />
-      <BottomTab.Screen name="Create Post" component={PostListingScreen} />
+      <BottomTab.Screen
+        name="Feeds"
+        component={FeedNavigator}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Create Post"
+        component={PostListingScreen}
+        options={({ navigation }) => ({
+          tabBarButton: () => <DWCreateFreedButton onPress={() => navigation.navigate("Create Post")} />
+        })}
+      />
       <BottomTab.Screen
         name="Account"
         component={AccountNavigator}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" size={size} color={color} />
+          ),
+        }}
       />
     </BottomTab.Navigator>
   );
