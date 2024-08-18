@@ -21,6 +21,7 @@ const Menus: MenuItem[] = [
             color={color.softDark}
           />
         ),
+        targetScreen: "My Listings",
       },
       {
         name: "My Messages",
@@ -31,6 +32,7 @@ const Menus: MenuItem[] = [
             color={color.softDark}
           />
         ),
+        targetScreen: "My Messages",
       },
     ],
   },
@@ -42,6 +44,7 @@ const Menus: MenuItem[] = [
         iconObject: (
           <MaterialCommunityIcons name="cog" size={24} color={color.softDark} />
         ),
+        targetScreen: "Settings",
       },
     ],
   },
@@ -55,6 +58,7 @@ interface MenuItem {
 interface Data {
   name: string;
   iconObject: ReactNode;
+  targetScreen: string;
 }
 
 const AccountScreen = ({ navigation }) => {
@@ -78,7 +82,7 @@ const AccountScreen = ({ navigation }) => {
             <DWBasicItem
               key={index}
               title={menu.name}
-              onPress={() => navigation.navigate("Messages")}
+              onPress={() => navigation.navigate(menu.targetScreen)}
             >
               <DWIcon Icon={menu.iconObject} />
             </DWBasicItem>
