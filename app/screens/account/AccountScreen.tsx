@@ -76,6 +76,7 @@ const AccountScreen = ({ navigation }) => {
           )}
           renderItem={({ item: menu, index }) => (
             <DWBasicItem
+            key={index}
               title={menu.name}
               onPress={() => console.log("Press on", menu.name)}
             >
