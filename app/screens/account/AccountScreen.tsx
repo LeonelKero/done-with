@@ -23,10 +23,10 @@ const Menus: MenuItem[] = [
         ),
       },
       {
-        name: "My Account",
+        name: "My Messages",
         iconObject: (
           <MaterialCommunityIcons
-            name="account"
+            name="email"
             size={24}
             color={color.softDark}
           />
