@@ -5,6 +5,7 @@ import PostListingScreen from "../screens/post/PostListingScreen";
 import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedsNavigator";
 import DWCreateFreedButton from "./components/DWCreateFreedButton";
+import AppRoutes from "./AppRoutes";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -12,7 +13,7 @@ const AppBottomTabBar = () => {
   return (
     <BottomTab.Navigator>
       <BottomTab.Screen
-        name="Feeds"
+        name={AppRoutes.FEEDS}
         component={FeedNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -21,14 +22,14 @@ const AppBottomTabBar = () => {
         }}
       />
       <BottomTab.Screen
-        name="Create Post"
+        name={AppRoutes.CREATE_POST}
         component={PostListingScreen}
         options={({ navigation }) => ({
           tabBarButton: () => <DWCreateFreedButton onPress={() => navigation.navigate("Create Post")} />
         })}
       />
       <BottomTab.Screen
-        name="Account"
+        name={AppRoutes.ACCOUNT}
         component={AccountNavigator}
         options={{
           headerShown: false,

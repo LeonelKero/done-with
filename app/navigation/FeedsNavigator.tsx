@@ -1,18 +1,19 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ListingDetailsScreen from "../screens/details/ListingDetailsScreen";
 import ListingsScreen from "../screens/listings/ListingsScreen";
+import AppRoutes from "./AppRoutes";
 
 const FeedStack = createNativeStackNavigator();
 
 const FeedNavigator = () => (
   <FeedStack.Navigator screenOptions={{ presentation: "modal" }}>
     <FeedStack.Screen
-      name="All Feeds"
+      name={AppRoutes.ALL_FEEDS}
       component={ListingsScreen}
       options={{ headerShown: false }}
     />
     <FeedStack.Screen
-      name="Feed Details"
+      name={AppRoutes.FEED_DETAILS}
       component={ListingDetailsScreen}
       options={{ headerShown: false }}
     />

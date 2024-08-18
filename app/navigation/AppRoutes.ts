@@ -2,7 +2,7 @@ export default Object.freeze({
     WELCOME: "Welcome",
     FEEDS: "Feeds",
     ALL_FEEDS: "All Feeds",
-    FEEDS_DETAILS: "Feed Details",
+    FEED_DETAILS: "Feed Details",
     SIGN_IN: "Sign In",
     SIGN_UP: "Sign Up",
     ACCOUNT: "Account",
