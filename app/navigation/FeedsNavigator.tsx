@@ -4,7 +4,7 @@ import ListingsScreen from "../screens/listings/ListingsScreen";
 
 const FeedStack = createNativeStackNavigator();
 
-const FeedNavigation = () => (
+const FeedNavigator = () => (
   <FeedStack.Navigator screenOptions={{ presentation: "modal" }}>
     <FeedStack.Screen
       name="All Feeds"
@@ -19,4 +19,4 @@ const FeedNavigation = () => (
   </FeedStack.Navigator>
 );
 
-export default FeedNavigation;
+export default FeedNavigator;

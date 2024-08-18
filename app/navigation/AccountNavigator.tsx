@@ -5,7 +5,7 @@ import MessagesScreen from "../screens/messages/MessagesScreen";
 
 const Stack = createNativeStackNavigator();
 
-const AccountNavigation = () => {
+const AccountNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="My Account" component={AccountScreen} />
@@ -14,4 +14,4 @@ const AccountNavigation = () => {
   );
 };
 
-export default AccountNavigation;
+export default AccountNavigator;

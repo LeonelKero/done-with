@@ -4,9 +4,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import color from "./app/config/color";
-import AuthNavigator from "./app/navigation/AuthNavigation";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
-import AppBottomTabBar from "./app/navigation/AppBottomTabNavigation";
+import AppBottomTabBar from "./app/navigation/AppBottomTabNavigator";
 
 const UserScreen = ({ navigation }) => (
   <View>
