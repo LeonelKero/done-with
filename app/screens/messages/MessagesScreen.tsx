@@ -11,7 +11,8 @@ const fakeData = [
   {
     id: 1,
     name: "Leonel ka",
-    content: "leonel ka drop a document for ka drop a document for ka drop a document for ka drop a document for ka drop a document for ka drop a document for you.",
+    content:
+      "leonel ka drop a document for ka drop a document for ka drop a document for ka drop a document for ka drop a document for ka drop a document for you.",
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ const fakeData = [
   {
     id: 3,
     name: "Santa",
-    content: "Said: Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!",
+    content:
+      "Said: Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!Santa is not far from here!",
   },
 ];
 
@@ -56,15 +58,6 @@ const MessagesScreen = () => {
                 onPress={() => handleDelete(message.id)}
               />
             }
-            // renderLeftActions={
-            //   <DWItemAction
-            //     actionName="Archive"
-            //     iconName={"archive"}
-            //     iconColor={color.white}
-            //     iconSize={30}
-            //     onPress={() => console.log("Action archive ", message)}
-            //   />
-            // }
           />
         )}
         keyExtractor={(item) => item.id.toString()}
