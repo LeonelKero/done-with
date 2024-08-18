@@ -76,9 +76,9 @@ const AccountScreen = ({ navigation }) => {
           )}
           renderItem={({ item: menu, index }) => (
             <DWBasicItem
-            key={index}
+              key={index}
               title={menu.name}
-              onPress={() => console.log("Press on", menu.name)}
+              onPress={() => navigation.navigate("Messages")}
             >
               <DWIcon Icon={menu.iconObject} />
             </DWBasicItem>
