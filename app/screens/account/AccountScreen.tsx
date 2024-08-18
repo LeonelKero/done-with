@@ -47,8 +47,6 @@ const Menus: MenuItem[] = [
   },
 ];
 
-// const IconColors = [color.lightBlue, color.primary, color.third, color.warm]
-
 interface MenuItem {
   sectionTitle: string;
   data: Data[];
@@ -59,9 +57,7 @@ interface Data {
   iconObject: ReactNode;
 }
 
-const AccountScreen = () => {
-  //   const [menus, setMenus] = useState([]);
-
+const AccountScreen = ({ navigation }) => {
   return (
     <RootContainer>
       <View style={styles.container}>
