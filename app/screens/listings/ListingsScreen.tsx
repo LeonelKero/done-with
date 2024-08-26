@@ -1,42 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import listingsApi from "../../api/listings";
 import DWCard from "../../components/card/DWCard";
 import RootContainer from "../RootContainer";
 
-const FakeListing = [
-  {
-    id: 1,
-    title: "Visit tour of Bafoussam",
-    price: 50,
-    image: require("../../assets/nature.jpeg"),
-  },
-  {
-    id: 2,
-    title: "Visit tour of Mont Ngaoundere",
-    price: 80,
-    image: require("../../assets/nature.jpeg"),
-  },
-  {
-    id: 3,
-    title: "Visit tour of PP",
-    price: 540,
-    image: require("../../assets/nature.jpeg"),
-  },
-  {
-    id: 4,
-    title: "Simple tour of the community",
-    price: 5,
-    image: require("../../assets/nature.jpeg"),
-  },
-];
-
 const ListingsScreen = ({ navigation }) => {
+  const [listings, setListings] = useState([]);
+
+  const loadListings = async () => {
+    const response = await listingsApi.fetchListings();
+    setListings(response.data);
+  };
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
   return (
     <RootContainer>
       <View style={styles.constainer}>
         <FlatList
           keyExtractor={(item) => item.id.toString()}
-          data={FakeListing}
+          data={listings}
           renderItem={({ item }) => (
             <DWCard
               onPress={() => navigation.navigate("Feed Details", item)}
