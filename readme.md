@@ -53,6 +53,7 @@ Hands on React Native application development
 - @react-navigation/native 6.x and dependencies (react-native-screens react-native-safe-area-context)
 - @react-navigation/native-stack 6.x
 - @react-navigation/bottom-tabs 6.x
+- apisauce 3.+
 
 # Screens
 
