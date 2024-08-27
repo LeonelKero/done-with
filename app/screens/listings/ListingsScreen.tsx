@@ -4,8 +4,20 @@ import listingsApi from "../../api/listings";
 import DWCard from "../../components/card/DWCard";
 import RootContainer from "../RootContainer";
 
+export interface Post {
+  id: number;
+  title: string;
+  description: string;
+  images: Images[];
+}
+
+interface Images {
+  url: string;
+  thumbnailUrl?: string;
+}
+
 const ListingsScreen = ({ navigation }) => {
-  const [listings, setListings] = useState([]);
+  const [listings, setListings] = useState<Post[]>([]);
 
   const loadListings = async () => {
     const response = await listingsApi.fetchListings();
