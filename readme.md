@@ -39,6 +39,7 @@ Hands on React Native application development. Build on top of Java/Spring Boot 
 - DM publisher
 - Item location
 - Upload images
+- Backend API communication
 
 ## Tech-Stack
 
