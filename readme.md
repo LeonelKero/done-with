@@ -1,6 +1,6 @@
 # Done With (DoneWith)
 
-Hands on React Native application development
+Hands on React Native application development. Build on top of Java/Spring Boot backend API.
 
 # Resources
 
