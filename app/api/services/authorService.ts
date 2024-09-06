@@ -7,4 +7,5 @@ export const getAllAuthors = async () => {
     const authors = await getAll<Author>(authorEndpoint)
     // log data to the console
     console.log(authors.data.map(author => author.email))
+    return authors
 }
