@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import Author from "../api/model/Author";
+import { getAllAuthors } from "../api/services/authorService";
 
 const useAuthors = () => {
   const [authors, setAuthors] = useState<Author[]>([]);
 
   useEffect(() => {
-    // Call api service
+    getAllAuthors().then((res) => {
+      if (res.ok) setAuthors(res?.data);
+    });
   }, []);
 
-  // Return an aobject to be consumed
+  return { authors, setAuthors };
 };
 
 export default useAuthors;
