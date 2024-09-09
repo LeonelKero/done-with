@@ -9,6 +9,7 @@ const useAuthors = () => {
     getAllAuthors().then((res) => {
       if (res.ok) setAuthors(res?.data);
     });
+    // Handle failed option
   }, []);
 
   return { authors, setAuthors };
